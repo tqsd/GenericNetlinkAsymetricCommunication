@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['register_5fcontrol_5fmodule_0',['register_control_module',['../register_8c.html#ac76320e2b7fb3b31808d9f83ddf7f879',1,'register_control_module(struct qu_device qu_control_module):&#160;register.c'],['../register_8h.html#ac76320e2b7fb3b31808d9f83ddf7f879',1,'register_control_module(struct qu_device qu_control_module):&#160;register.c']]],
-  ['register_5fdevice_1',['register_device',['../register_8c.html#a749e78f7da7428b29fa80e380ec95cfb',1,'register_device(struct qu_device qudev):&#160;register.c'],['../register_8h.html#a749e78f7da7428b29fa80e380ec95cfb',1,'register_device(struct qu_device qudev):&#160;register.c']]],
-  ['register_5fresponse_2',['register_response',['../register_8c.html#a5bdc81758e9e563d2e6ae042097c6116',1,'register_response(int assigned_device_id, struct sk_buff *request, struct genl_info *info, char *msg):&#160;register.c'],['../register_8h.html#a5bdc81758e9e563d2e6ae042097c6116',1,'register_response(int assigned_device_id, struct sk_buff *request, struct genl_info *info, char *msg):&#160;register.c']]],
-  ['register_5fwith_5fsimulation_5fcontrol_5fmodule_3',['register_with_simulation_control_module',['../register_8c.html#ad45ce3338ecbad4fd7f41b59b09aef94',1,'register_with_simulation_control_module(int assigned_device_id, struct genl_info *info, char *msg):&#160;register.c'],['../register_8h.html#ad45ce3338ecbad4fd7f41b59b09aef94',1,'register_with_simulation_control_module(int assigned_device_id, struct genl_info *info, char *msg):&#160;register.c']]]
-];
