@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File qu_netlink.h &mdash; Netlink Asymetric Communication Module 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Netlink Asymetric Communication Module
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Netlink Asymetric Communication Module</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File qu_netlink.h</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/program_listing_file_src_qu_netlink.h.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-qu-netlink-h">
+<span id="program-listing-file-src-qu-netlink-h"></span><h1>Program Listing for File qu_netlink.h<a class="headerlink" href="#program-listing-for-file-qu-netlink-h" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_src_qu_netlink.h.html#file-src-qu-netlink-h"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/qu_netlink.h</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef QU_NETLINK_H_</span>
+<span class="cp">#define QU_NETLINK_H_</span>
+<span class="cm">/*</span>
+<span class="cm"> * NETLINK INTERFACE DEFINITIONS</span>
+<span class="cm"> */</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Netlink family name</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#define FAMILY_NAME &quot;qu_net_link&quot;</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="nc">GNL_QU_NET_ATTRIBUTE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* Convention: 0th enumeration is never used (?)  */</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_A_UNSPEC</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*  We expect a MSG to be a null-terminated C-string. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_A_DEV_TYPE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* Integer, which is to be included for identification purposes. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_A_ID</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* Not a real attribute */</span><span class="w"></span>
+<span class="w">  </span><span class="n">__QU_NET_A_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="cp">#define GNL_QU_NET_ATTRIBUTE_ENUM_LEN (__QU_NET_A_MAX)</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * The numbe rof usable attributes in `enum QU_NET_ATTRIBUTE`.</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#define GNL_QU_NET_ATTRIBUTE_COUNT (QU_NET_ATTRIBUTE_ENUM_LEN - 1)</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Enumeration of all of the commands</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">GNL_QU_NET_COMMAND</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_UNSPEC</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_ECHO</span><span class="p">,</span><span class="w">       </span><span class="c1">// For testing purposes</span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_REGISTER</span><span class="p">,</span><span class="w">   </span><span class="c1">// For registering a module inside of the container</span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_DEREGISTER</span><span class="p">,</span><span class="w"> </span><span class="c1">// For deregistering a module</span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_CONFIG</span><span class="p">,</span><span class="w">     </span><span class="c1">// For configuring a hw device</span>
+<span class="w">  </span><span class="n">GNL_QU_NET_C_COMMAND</span><span class="p">,</span><span class="w">    </span><span class="c1">// For configuring a hw device</span>
+<span class="w">  </span><span class="c1">// container GNL_QU_NET_C_CONFIG,     // Configuration command</span>
+<span class="w">  </span><span class="c1">// GNL_QU_NET_C_COMMAND, // Operation commands from the user-space to the</span>
+<span class="w">  </span><span class="c1">// quantum</span>
+<span class="w">  </span><span class="c1">//  simulation</span>
+<span class="w">  </span><span class="c1">// GNL_QU_NET_C_RESPONSE, // Generic response of the kernel module</span>
+<span class="w">  </span><span class="n">__QU_NET_C_MAX</span><span class="p">,</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Number of elements in &#39;QU_NET_COMMAND&#39;</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#define GNL_QU_NET_COMMAND_ENUM_LEN (__QU_NET_C_MAX)</span>
+<span class="cp">#define GNL_QU_NET_COMMAND_COUNT (GNL_QU_NET_COMMAND_ENUM_LEN - 1)</span>
+
+<span class="cp">#endif </span><span class="c1">// QU_NETLINK_H_</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, TQSD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+.. _exhale_define_qu__netlink_8h_1ad30be674423be07519e679575e66a538:
+
+Define FAMILY_NAME
+==================
+
+- Defined in :ref:`file_src_qu_netlink.h`
+
+
+Define Documentation
+--------------------
+
+
+.. doxygendefine:: FAMILY_NAME
+   :project: Netlink Asymmetric Communication Module

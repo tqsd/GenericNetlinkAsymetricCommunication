@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Listing for File register.c &mdash; Netlink Asymetric Communication Module 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Netlink Asymetric Communication Module
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="library_root.html">Library API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Netlink Asymetric Communication Module</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Program Listing for File register.c</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/program_listing_file_src_register.c.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="program-listing-for-file-register-c">
+<span id="program-listing-file-src-register-c"></span><h1>Program Listing for File register.c<a class="headerlink" href="#program-listing-for-file-register-c" title="Permalink to this headline"></a></h1>
+<p>↰ <a class="reference internal" href="file_src_register.c.html#file-src-register-c"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">src/register.c</span></code>)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/slab.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;net/genetlink.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;qu_netlink.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;register.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;types.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/kernel.h&gt;</span><span class="c1"> /* We&#39;re doing kernel work */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/module.h&gt;</span><span class="c1"> /* Specifically, a module  */</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/string.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// Is memory for qu_devices allocated</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">qu_devices_allocated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">qu_device</span><span class="w"> </span><span class="o">*</span><span class="n">qu_devices</span><span class="p">;</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">qu_dev_mutex</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">qu_device</span><span class="w"> </span><span class="n">control_module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">};</span><span class="w"></span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">mutex</span><span class="w"> </span><span class="n">controller_module</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// Conversion function</span>
+<span class="n">DEVICE_TYPE</span><span class="w"> </span><span class="nf">msg_to_DEVICE_TYPE</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">QUANTUM_NETWORK_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">default</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">register_control_module</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">qu_device</span><span class="w"> </span><span class="n">qu_control_module</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">control_module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qu_control_module</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">deregister_control_module</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">qu_device</span><span class="w"> </span><span class="n">qu_control_module</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">control_module</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// Checks if there are empty slots in the device array</span>
+<span class="c1">// so no new memory will be allocated if there are empty slots already</span>
+<span class="c1">// Room for optimization</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">empty_device_slots</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">qu_devices_allocated</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_devices</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Empty device slot found %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">register_device</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">qu_device</span><span class="w"> </span><span class="n">qudev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Deal with the dynamically sized array</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">alloc_index</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">alloc_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">empty_device_slots</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">alloc_index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_devices_allocated</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// If not allocated allocate array with size 1</span>
+<span class="w">      </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Malloc&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_devices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmalloc</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">qu_device</span><span class="p">),</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// If allocated resize it</span>
+<span class="w">      </span><span class="n">qu_devices</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">          </span><span class="n">krealloc</span><span class="p">(</span><span class="n">qu_devices</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">qu_devices_allocated</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">qu_device</span><span class="p">),</span><span class="w"></span>
+<span class="w">                   </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_devices_allocated</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">alloc_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qu_devices_allocated</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Add the device to the array</span>
+<span class="w">  </span><span class="p">(</span><span class="n">qu_devices</span><span class="p">)[</span><span class="n">alloc_index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qudev</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Currently %d devices registered!&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">qu_devices_allocated</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">qu_dev_mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// Index and length are two different things</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">alloc_index</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * deregister_device()</span>
+<span class="cm"> * Changes the device to NOT_A_DEVICE and lets the simulation control module</span>
+<span class="cm"> * know that this device disconnected</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">deregister_device</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">qu_device</span><span class="w"> </span><span class="n">qu_dev</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">qu_dev_mutex</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">id</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">qu_devices_allocated</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;This id is not assigned; No device deregistered!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_devices</span><span class="p">[</span><span class="o">*</span><span class="n">id</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Device with this id already deregistered!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_dev</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="n">snd_portid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">qu_devices</span><span class="p">[</span><span class="o">*</span><span class="n">id</span><span class="p">].</span><span class="n">info</span><span class="p">.</span><span class="n">snd_portid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_devices</span><span class="p">[</span><span class="o">*</span><span class="n">id</span><span class="p">].</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;The device and PID do not match&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">qu_dev_mutex</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Function that sends back the success flag of the register/unregister</span>
+<span class="cm"> * operation</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">register_response</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">assigned_device_id</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">sk_buff</span><span class="w"> </span><span class="o">*</span><span class="n">request</span><span class="p">,</span><span class="w"></span>
+<span class="w">                      </span><span class="k">struct</span><span class="w"> </span><span class="nc">genl_info</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">msg_head</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sk_buff</span><span class="w"> </span><span class="o">*</span><span class="n">reply</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">reply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_new</span><span class="p">(</span><span class="n">NLMSG_GOODSIZE</span><span class="p">,</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reply</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* start the message */</span><span class="w"></span>
+<span class="w">  </span><span class="n">msg_head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_put</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="c1">// buffer for netlink message: struct sk_buff *</span>
+<span class="w">             </span><span class="c1">// According to my findings: this is not used for routing</span>
+<span class="w">             </span><span class="c1">// This can be used in an application specific way to target</span>
+<span class="w">             </span><span class="c1">// different endpoints within the same user application</span>
+<span class="w">             </span><span class="c1">// but general rule: just put sender port id here</span>
+<span class="w">      </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">snd_portid</span><span class="p">,</span><span class="w"> </span><span class="c1">// sending port (not process) id: int</span>
+<span class="w">      </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">snd_seq</span><span class="p">,</span><span class="w">    </span><span class="c1">// sequence number: int (might be used by receiver, but</span>
+<span class="w">                        </span><span class="c1">// not mandatory)</span>
+<span class="w">      </span><span class="o">&amp;</span><span class="n">gnl_qu_net_family</span><span class="p">,</span><span class="w"> </span><span class="c1">// struct genl_family *</span>
+<span class="w">      </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// flags for Netlink header: int; application specific and not</span>
+<span class="w">         </span><span class="c1">// mandatory</span>
+<span class="w">      </span><span class="c1">// The command/operation (u8) from `enum GNL_FOOBAR_XMPL_COMMAND` for</span>
+<span class="w">      </span><span class="c1">// Generic Netlink header</span>
+<span class="w">      </span><span class="n">GNL_QU_NET_C_REGISTER</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">msg_head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nla_put_string</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nla_put_u32</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_ID</span><span class="p">,</span><span class="w"> </span><span class="n">assigned_device_id</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">genlmsg_end</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">msg_head</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_reply</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;An error occurred in %s():</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * register_with_simulation_control_module()</span>
+<span class="cm"> * sends the message to the simulation control module</span>
+<span class="cm"> * so it knows about the new hardware, that needs to be simulated</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">register_with_simulation_control_module</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">assigned_device_id</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                            </span><span class="k">struct</span><span class="w"> </span><span class="nc">genl_info</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">msg_head</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">sk_buff</span><span class="w"> </span><span class="o">*</span><span class="n">reply</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">controller_module</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">reply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_new</span><span class="p">(</span><span class="n">NLMSG_GOODSIZE</span><span class="p">,</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reply</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">control_module</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="n">snd_seq</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/* start the message */</span><span class="w"></span>
+<span class="w">  </span><span class="n">msg_head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_put</span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="c1">// buffer for netlink message: struct sk_buff *</span>
+<span class="w">             </span><span class="c1">// According to my findings: this is not used for routing</span>
+<span class="w">             </span><span class="c1">// This can be used in an application specific way to target</span>
+<span class="w">             </span><span class="c1">// different endpoints within the same user application</span>
+<span class="w">             </span><span class="c1">// but general rule: just put sender port id here</span>
+<span class="w">      </span><span class="n">control_module</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="n">snd_portid</span><span class="p">,</span><span class="w"> </span><span class="c1">// sending port (not process) id: int</span>
+<span class="w">      </span><span class="n">control_module</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="n">snd_seq</span><span class="p">,</span><span class="w">    </span><span class="c1">// sequence number: int (might be used by</span>
+<span class="w">                                      </span><span class="c1">// receiver, but not mandatory)</span>
+<span class="w">      </span><span class="o">&amp;</span><span class="n">gnl_qu_net_family</span><span class="p">,</span><span class="w">             </span><span class="c1">// struct genl_family *</span>
+<span class="w">      </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="c1">// flags for Netlink header: int; application specific and not</span>
+<span class="w">         </span><span class="c1">// mandatory</span>
+<span class="w">      </span><span class="c1">// The command/operation (u8) from `enum GNL_FOOBAR_XMPL_COMMAND` for</span>
+<span class="w">      </span><span class="c1">// Generic Netlink header</span>
+<span class="w">      </span><span class="n">GNL_QU_NET_C_REGISTER</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">msg_head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nla_put_string</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">nla_put_u32</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_ID</span><span class="p">,</span><span class="w"> </span><span class="n">assigned_device_id</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">genlmsg_end</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span><span class="w"> </span><span class="n">msg_head</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">genlmsg_unicast</span><span class="p">(</span><span class="n">genl_info_net</span><span class="p">(</span><span class="n">info</span><span class="p">),</span><span class="w"> </span><span class="n">reply</span><span class="p">,</span><span class="w"></span>
+<span class="w">                       </span><span class="n">control_module</span><span class="p">.</span><span class="n">info</span><span class="p">.</span><span class="n">snd_portid</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;An error occurred in %s():</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">rc</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">controller_module</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * gnl_qu_net_register_doit()</span>
+<span class="cm"> * This callback function is called when a command GNL_QU_NET_C_REGISTER is</span>
+<span class="cm"> * received, the command is accompanied by a device type enumeration.</span>
+<span class="cm"> * Only one simulation control module can be registered with one netlink</span>
+<span class="cm"> * family.</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">gnl_qu_net_register_doit</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sk_buff</span><span class="w"> </span><span class="o">*</span><span class="n">sender_skb</span><span class="p">,</span><span class="w"></span>
+<span class="w">                             </span><span class="k">struct</span><span class="w"> </span><span class="nc">genl_info</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nlattr</span><span class="w"> </span><span class="o">*</span><span class="n">na_dev_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nlattr</span><span class="w"> </span><span class="o">*</span><span class="n">na_msg</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">recv_dev_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">recv_msg</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">rr</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">qu_device</span><span class="w"> </span><span class="n">qu_dev</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// device to register</span>
+<span class="w">  </span><span class="n">DEVICE_TYPE</span><span class="w"> </span><span class="n">qu_dev_reg</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;An error occured in %s(): </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">na_dev_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">attrs</span><span class="p">[</span><span class="n">GNL_QU_NET_A_DEV_TYPE</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">na_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">attrs</span><span class="p">[</span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">na_dev_type</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">na_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;no info-&gt;attrs[%i]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_DEV_TYPE</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;no info-&gt;attrs[%i]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">recv_dev_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nla_data</span><span class="p">(</span><span class="n">na_dev_type</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">recv_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">nla_data</span><span class="p">(</span><span class="n">na_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">recv_msg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Error while receiving data</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;New quantum device registration requested: &#39;%s&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg_to_DEVICE_TYPE</span><span class="p">(</span><span class="n">recv_dev_type</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Device type: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">qu_dev_reg</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Invalid device type&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">control_module</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Simulation control module already registered, only one can be &quot;</span><span class="w"></span>
+<span class="w">             </span><span class="s">&quot;registered at a time</span><span class="se">\n</span><span class="s">Please unregister the existing module &quot;</span><span class="w"></span>
+<span class="w">             </span><span class="s">&quot;first.&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">register_response</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">register_control_module</span><span class="p">(</span><span class="n">qu_dev</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">register_response</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;New quantum device succesfully registered</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">control_module</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">NOT_A_DEVICE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Control module should be registered first!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">register_response</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Registering quantum network device&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QUANTUM_NETWORK_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">rr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">register_device</span><span class="p">(</span><span class="n">qu_dev</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">register_with_simulation_control_module</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">register_response</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Deregistration callback function</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">gnl_qu_net_deregister_doit</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">sk_buff</span><span class="w"> </span><span class="o">*</span><span class="n">sender_skb</span><span class="p">,</span><span class="w"></span>
+<span class="w">                               </span><span class="k">struct</span><span class="w"> </span><span class="nc">genl_info</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nlattr</span><span class="w"> </span><span class="o">*</span><span class="n">na_dev_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nlattr</span><span class="w"> </span><span class="o">*</span><span class="n">na_msg</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">recv_msg</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">recv_dev_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">DEVICE_TYPE</span><span class="w"> </span><span class="n">qu_dev_reg</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">resp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">nlattr</span><span class="w"> </span><span class="o">*</span><span class="n">recv_id</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">id</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;%s() invoked </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">info</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;An error occured in %s(): </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">__func__</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">na_dev_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">attrs</span><span class="p">[</span><span class="n">GNL_QU_NET_A_DEV_TYPE</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">na_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">attrs</span><span class="p">[</span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">na_dev_type</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">na_msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;no info-&gt;attrs[%i]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_DEV_TYPE</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;no info-&gt;attrs[%i]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_MSG</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">recv_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="o">-&gt;</span><span class="n">attrs</span><span class="p">[</span><span class="n">GNL_QU_NET_A_ID</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">recv_id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;2&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;no info-&gt;attrs[%i]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">GNL_QU_NET_A_ID</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">EINVAL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">nla_data</span><span class="p">(</span><span class="n">recv_id</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">recv_dev_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nla_data</span><span class="p">(</span><span class="n">na_dev_type</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">recv_msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">nla_data</span><span class="p">(</span><span class="n">na_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">recv_msg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Error while receiving data</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;New deregistration request: &#39;%s&#39;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg_to_DEVICE_TYPE</span><span class="p">(</span><span class="n">recv_dev_type</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Device type: %i</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">qu_dev_reg</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Invalid device type&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">register_response</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">qu_dev_reg</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">control_module</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_err</span><span class="p">(</span><span class="s">&quot;Simulation control module is not registered!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">register_response</span><span class="p">(</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_device</span><span class="w"> </span><span class="n">qu_dev</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SIMULATION_CONTROL_MODULE</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">deregister_control_module</span><span class="p">(</span><span class="n">qu_dev</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Simulation control module succesfully deregistered!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">register_response</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_device</span><span class="w"> </span><span class="n">qu_dev</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">QUANTUM_NETWORK_DEVICE</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">qu_dev</span><span class="p">.</span><span class="n">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pr_info</span><span class="p">(</span><span class="s">&quot;Just before entering the deregistration function!&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">deregister_device</span><span class="p">(</span><span class="n">qu_dev</span><span class="p">,</span><span class="w"> </span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">register_response</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span><span class="w"> </span><span class="n">sender_skb</span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="p">,</span><span class="w"> </span><span class="n">recv_msg</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, TQSD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

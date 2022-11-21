@@ -1,0 +1,14 @@
+.. _exhale_typedef_command_8h_1ae16c92b8b9283dc0983900820c5834b2:
+
+Typedef sk_buff
+===============
+
+- Defined in :ref:`file_src_command.h`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: sk_buff
+   :project: Netlink Asymmetric Communication Module

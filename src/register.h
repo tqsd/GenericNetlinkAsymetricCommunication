@@ -36,6 +36,7 @@ int register_with_simulation_control_module(int assigned_device_id,
 
 extern struct mutex qu_dev_mutex;
 
+// QU DEVICE
 typedef struct qu_device {
   DEVICE_TYPE type; // Device type
   genl_info info;   // Process identification

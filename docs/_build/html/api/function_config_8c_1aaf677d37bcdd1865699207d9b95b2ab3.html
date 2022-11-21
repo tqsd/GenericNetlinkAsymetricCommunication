@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *) &mdash; Netlink Asymetric Communication Module 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/collapsible-lists/css/tree_view.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+        <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)" href="function_config_8h_1aaf677d37bcdd1865699207d9b95b2ab3.html" />
+    <link rel="prev" title="Function gnl_qu_net_command_doit(struct sk_buff *, struct genl_info *)" href="function_command_8h_1afb136d7999aac8acddf1cd7ebfc992bd.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Netlink Asymetric Communication Module
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">Library API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="library_root.html#page-hierarchy">Page Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library_root.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="library_root.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="library_root.html#full-api">Full API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#namespaces">Namespaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#classes-and-structs">Classes and Structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#enums">Enums</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="library_root.html#functions">Functions</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a455b15ec8fbbc1ca798dcdb2b785adc4.html">Function deregister_control_module(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a455b15ec8fbbc1ca798dcdb2b785adc4.html">Function deregister_control_module(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a9fcb25e4070e6b3292a964056babb4c4.html">Function deregister_device(struct qu_device, int *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a9fcb25e4070e6b3292a964056babb4c4.html">Function deregister_device(struct qu_device, int *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a99083653126e569979517c569092d282.html">Function empty_device_slots(void)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a99083653126e569979517c569092d282.html">Function empty_device_slots(void)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8c_1afb136d7999aac8acddf1cd7ebfc992bd.html">Function gnl_qu_net_command_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8h_1afb136d7999aac8acddf1cd7ebfc992bd.html">Function gnl_qu_net_command_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_config_8h_1aaf677d37bcdd1865699207d9b95b2ab3.html">Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1abdabf9dde5da39300c8e4a78ce7e6748.html">Function gnl_qu_net_deregister_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1abdabf9dde5da39300c8e4a78ce7e6748.html">Function gnl_qu_net_deregister_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_echo_8c_1a2116661e44dc6fa2ab8322b815bf514c.html">Function gnl_qu_net_echo_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_echo_8h_1a2116661e44dc6fa2ab8322b815bf514c.html">Function gnl_qu_net_echo_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a190220f2a20542bd2788f9488b0c66c5.html">Function gnl_qu_net_register_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a190220f2a20542bd2788f9488b0c66c5.html">Function gnl_qu_net_register_doit(struct sk_buff *, struct genl_info *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1a55c7c67613dfdca1ac3dcbfd9ebfd110.html">Function MODULE_AUTHOR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1ac13d0d9d639931d85c583f79c5be9251.html">Function MODULE_DESCRIPTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1aa50fd8200b072dfed61ba19d3f1d358f.html">Function module_exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1a46149abfbfd99236ff778347d26bc1e6.html">Function module_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1ad94b36675e7eb067ea3ce6ff9e244a44.html">Function MODULE_LICENSE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1abd0d9b4a65c0b5576a8c7b713f86f84e.html">Function MODULE_VERSION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a03ae670e432d5469a6409edf63703028.html">Function msg_to_DEVICE_TYPE(int *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a03ae670e432d5469a6409edf63703028.html">Function msg_to_DEVICE_TYPE(int *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8c_1a1b363a4ab97ce925037e690e49cff589.html">Function pass_to_node(struct genl_info *, int, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8h_1a1b363a4ab97ce925037e690e49cff589.html">Function pass_to_node(struct genl_info *, int, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8c_1a990ef9278778128c9af0819bb8f3f264.html">Function pass_to_scm(struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_command_8h_1a990ef9278778128c9af0819bb8f3f264.html">Function pass_to_scm(struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1ac76320e2b7fb3b31808d9f83ddf7f879.html">Function register_control_module(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1ac76320e2b7fb3b31808d9f83ddf7f879.html">Function register_control_module(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a749e78f7da7428b29fa80e380ec95cfb.html">Function register_device(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a749e78f7da7428b29fa80e380ec95cfb.html">Function register_device(struct qu_device)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1a5bdc81758e9e563d2e6ae042097c6116.html">Function register_response(int, struct sk_buff *, struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1a5bdc81758e9e563d2e6ae042097c6116.html">Function register_response(int, struct sk_buff *, struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8c_1ad45ce3338ecbad4fd7f41b59b09aef94.html">Function register_with_simulation_control_module(int, struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_register_8h_1ad45ce3338ecbad4fd7f41b59b09aef94.html">Function register_with_simulation_control_module(int, struct genl_info *, char *)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1a75d6def2db97d07e1212febc9a291ea8.html">Function simulated_quantum_network_kernel_module_exit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_quantum__network__device__kernel__module_8c_1a60acdc57b0ecd935563c57c2954170f6.html">Function simulated_quantum_network_kernel_module_init</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#defines">Defines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="library_root.html#typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Netlink Asymetric Communication Module</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="library_root.html">Library API</a></li>
+      <li class="breadcrumb-item active">Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/function_config_8c_1aaf677d37bcdd1865699207d9b95b2ab3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="function-gnl-qu-net-config-doit-struct-sk-buff-struct-genl-info">
+<span id="exhale-function-config-8c-1aaf677d37bcdd1865699207d9b95b2ab3"></span><h1>Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)<a class="headerlink" href="#function-gnl-qu-net-config-doit-struct-sk-buff-struct-genl-info" title="Permalink to this headline"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_src_config.c.html#file-src-config-c"><span class="std std-ref">File config.c</span></a></p></li>
+</ul>
+<section id="function-documentation">
+<h2>Function Documentation<a class="headerlink" href="#function-documentation" title="Permalink to this headline"></a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422gnl_qu_net_config_doitP7sk_buffP9genl_info">
+<span id="_CPPv322gnl_qu_net_config_doitP7sk_buffP9genl_info"></span><span id="_CPPv222gnl_qu_net_config_doitP7sk_buffP9genl_info"></span><span id="gnl_qu_net_config_doit__sk_buffP.genl_infoP"></span><span class="target" id="config_8h_1aaf677d37bcdd1865699207d9b95b2ab3"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gnl_qu_net_config_doit</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="typedef_command_8h_1ae16c92b8b9283dc0983900820c5834b2.html#_CPPv47sk_buff" title="sk_buff"><span class="n"><span class="pre">sk_buff</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sender_skb</span></span>, <span class="k"><span class="pre">struct</span></span><span class="w"> </span><a class="reference internal" href="typedef_command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8.html#_CPPv49genl_info" title="genl_info"><span class="n"><span class="pre">genl_info</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">info</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422gnl_qu_net_config_doitP7sk_buffP9genl_info" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="function_command_8h_1afb136d7999aac8acddf1cd7ebfc992bd.html" class="btn btn-neutral float-left" title="Function gnl_qu_net_command_doit(struct sk_buff *, struct genl_info *)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="function_config_8h_1aaf677d37bcdd1865699207d9b95b2ab3.html" class="btn btn-neutral float-right" title="Function gnl_qu_net_config_doit(struct sk_buff *, struct genl_info *)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, TQSD.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

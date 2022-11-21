@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="quantum__network__device__kernel__module_8c" kind="file" language="C++">
+    <compoundname>quantum_network_device_kernel_module.c</compoundname>
+    <includes refid="qndkm_8h" local="yes">./qndkm.h</includes>
+    <includes refid="command_8h" local="yes">./src/command.h</includes>
+    <includes refid="config_8h" local="yes">./src/config.h</includes>
+    <includes refid="echo_8h" local="yes">./src/echo.h</includes>
+    <includes refid="qu__netlink_8h" local="yes">./src/qu_netlink.h</includes>
+    <includes refid="register_8h" local="yes">./src/register.h</includes>
+    <includes refid="types_8h" local="yes">./src/types.h</includes>
+    <includes local="no">linux/module.h</includes>
+    <includes local="no">net/genetlink.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c</label>
+        <link refid="quantum__network__device__kernel__module_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>linux/module.h</label>
+      </node>
+      <node id="3">
+        <label>net/genetlink.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="quantum__network__device__kernel__module_8c_1abcb3b88a2ffb4f61a9248acb1ef5a1f6" prot="public" static="no">
+        <name>DEV_NAME</name>
+        <initializer>  &quot;qunet_virt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>@quantum_network_device_kernel_module.c Netlink family name, can be changed via provided \ utilities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="13" column="9" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="quantum__network__device__kernel__module_8c_1ac125f7d30bf064c9d0377e84916309e6" prot="public" static="no">
+        <name>GNL_QU_NET_OPS_LEN</name>
+        <initializer>(GNL_QU_NET_COMMAND_COUNT)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="27" column="9" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="quantum__network__device__kernel__module_8c_1af13f3b43f5a2d6ca7401f877f5fefa96" prot="public" static="no" mutable="no">
+        <type>struct genl_ops</type>
+        <definition>struct genl_ops gnl_qu_net_ops[GNL_QU_NET_OPS_LEN]</definition>
+        <argsstring>[GNL_QU_NET_OPS_LEN]</argsstring>
+        <name>gnl_qu_net_ops</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="46" column="15" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="quantum__network__device__kernel__module_8c_1a3ddb10da357b90d3aaebb7ceac3060f8" prot="public" static="yes" mutable="no">
+        <type>struct nla_policy</type>
+        <definition>struct nla_policy gnl_qu_net_policy[GNL_QU_NET_ATTRIBUTE_ENUM_LEN]</definition>
+        <argsstring>[GNL_QU_NET_ATTRIBUTE_ENUM_LEN]</argsstring>
+        <name>gnl_qu_net_policy</name>
+        <initializer>= {
+    [GNL_QU_NET_A_UNSPEC] = {.type = NLA_UNSPEC},
+    [GNL_QU_NET_A_MSG] = {.type = NLA_NUL_STRING},
+    [GNL_QU_NET_A_DEV_TYPE] = {.type = NLA_U32},
+    [GNL_QU_NET_A_ID] = {.type = NLA_U32},
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="93" column="24" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="quantum__network__device__kernel__module_8c_1a2badde9dbcf798ac3a058da3b40067c6" prot="public" static="no" mutable="no">
+        <type>struct genl_family</type>
+        <definition>struct genl_family gnl_qu_net_family</definition>
+        <argsstring></argsstring>
+        <name>gnl_qu_net_family</name>
+        <initializer>= {
+    .id = 0,
+    .hdrsize = 0,
+    .name = FAMILY_NAME,
+    .version = 1,
+    
+    .ops = gnl_qu_net_ops, 
+    
+    .n_ops = GNL_QU_NET_OPS_LEN,              
+    .policy = gnl_qu_net_policy,              
+    .maxattr = GNL_QU_NET_ATTRIBUTE_ENUM_LEN, 
+    .module = THIS_MODULE,
+    .parallel_ops = true,
+    .pre_doit = NULL,
+    .post_doit = NULL}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="101" column="18" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1ad94b36675e7eb067ea3ce6ff9e244a44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MODULE_LICENSE</definition>
+        <argsstring>(&quot;GPL&quot;)</argsstring>
+        <name>MODULE_LICENSE</name>
+        <param>
+          <type>&quot;GPL&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="17" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1a55c7c67613dfdca1ac3dcbfd9ebfd110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MODULE_AUTHOR</definition>
+        <argsstring>(&quot;Simon Sekavčnik&quot;)</argsstring>
+        <name>MODULE_AUTHOR</name>
+        <param>
+          <type>&quot;Simon Sekavčnik&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="18" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="18" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1ac13d0d9d639931d85c583f79c5be9251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MODULE_DESCRIPTION</definition>
+        <argsstring>(&quot;Kernel interface, which exposes the interface to &quot; &quot;simulated/real quantum networking hardware&quot;)</argsstring>
+        <name>MODULE_DESCRIPTION</name>
+        <param>
+          <type>&quot;Kernel</type>
+          <declname>interface</declname>
+        </param>
+        <param>
+          <type>which exposes the interface to &quot; &quot;simulated/real quantum networking hardware&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="19" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="19" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1abd0d9b4a65c0b5576a8c7b713f86f84e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>MODULE_VERSION</definition>
+        <argsstring>(&quot;0.01&quot;)</argsstring>
+        <name>MODULE_VERSION</name>
+        <param>
+          <type>&quot;0.01&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="21" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="21" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1a60acdc57b0ecd935563c57c2954170f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int __init</type>
+        <definition>static int __init simulated_quantum_network_kernel_module_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>simulated_quantum_network_kernel_module_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="124" column="19" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="124" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1a75d6def2db97d07e1212febc9a291ea8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void __exit</type>
+        <definition>static void __exit simulated_quantum_network_kernel_module_exit</definition>
+        <argsstring>(void)</argsstring>
+        <name>simulated_quantum_network_kernel_module_exit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Kernel exit function; ran when unloading the module into the kernel. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="153" column="20" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="153" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1a46149abfbfd99236ff778347d26bc1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>module_init</definition>
+        <argsstring>(simulated_quantum_network_kernel_module_init)</argsstring>
+        <name>module_init</name>
+        <param>
+          <type>simulated_quantum_network_kernel_module_init</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="171" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="171" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="quantum__network__device__kernel__module_8c_1aa50fd8200b072dfed61ba19d3f1d358f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>module_exit</definition>
+        <argsstring>(simulated_quantum_network_kernel_module_exit)</argsstring>
+        <name>module_exit</name>
+        <param>
+          <type>simulated_quantum_network_kernel_module_exit</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" line="172" column="1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" declline="172" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./qndkm.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/command.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/config.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/echo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/qu_netlink.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/register.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;./src/types.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;linux/module.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;net/genetlink.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEV_NAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/>&quot;qunet_virt&quot;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">MODULE_LICENSE(</highlight><highlight class="stringliteral">&quot;GPL&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">MODULE_AUTHOR(</highlight><highlight class="stringliteral">&quot;Simon<sp/>Sekavčnik&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">MODULE_DESCRIPTION(</highlight><highlight class="stringliteral">&quot;Kernel<sp/>interface,<sp/>which<sp/>exposes<sp/>the<sp/>interface<sp/>to<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;simulated/real<sp/>quantum<sp/>networking<sp/>hardware&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">MODULE_VERSION(</highlight><highlight class="stringliteral">&quot;0.01&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>\def<sp/>GNL_QU_NET_OPS_LEN</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>\brief<sp/>Calculate<sp/>(at<sp/>compile<sp/>time)<sp/>how<sp/>many<sp/>possible<sp/>operations<sp/>are<sp/>defined</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>in<sp/>src/qu_netlink.h</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GNL_QU_NET_OPS_LEN<sp/>(GNL_QU_NET_COMMAND_COUNT)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>Array<sp/>with<sp/>all<sp/>operations<sp/>that<sp/>our<sp/>protocol<sp/>on<sp/>top<sp/>of<sp/>Generic<sp/>Netlink</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>supports.<sp/>An<sp/>operation<sp/>is<sp/>the<sp/>glue<sp/>between<sp/>a<sp/>command<sp/>and<sp/>the<sp/>corresponding</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>&quot;.doit&quot;<sp/>callback<sp/>function.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>\var<sp/>genl_ops[GNL_QU_NET_OPS]</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">**<sp/>\brief<sp/>array<sp/>of<sp/>genl_ops</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">**</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">**<sp/>genl_ops<sp/>is<sp/>composed<sp/>of:</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">**<sp/><sp/>-<sp/>.cmd<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>operation<sp/>command</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">**<sp/><sp/>-<sp/>.flags<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>flags<sp/>(we<sp/>do<sp/>not<sp/>use<sp/>them)</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">**<sp/><sp/>-<sp/>.internal_flags<sp/>=&gt;<sp/>internal_flags<sp/>(we<sp/>do<sp/>not<sp/>use<sp/>them)</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">**<sp/><sp/>-<sp/>.doit<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=&gt;<sp/>callback<sp/>function<sp/>which<sp/>is<sp/>called</highlight></codeline>
+<codeline lineno="43"><highlight class="comment">**<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>the<sp/>message<sp/>with<sp/>.cmd<sp/>type<sp/>is<sp/>received</highlight></codeline>
+<codeline lineno="44"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">genl_ops<sp/>gnl_qu_net_ops[GNL_QU_NET_OPS_LEN]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.cmd<sp/>=<sp/>GNL_QU_NET_C_ECHO,<sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.internal_flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.doit<sp/>=<sp/>gnl_qu_net_echo_doit,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dumpit<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.start<sp/>=<sp/>NULL,<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.done<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.validate<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.cmd<sp/>=<sp/>GNL_QU_NET_C_REGISTER,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.internal_flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.doit<sp/>=<sp/>gnl_qu_net_register_doit,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.dumpit<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.start<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.done<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.validate<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.cmd<sp/>=<sp/>GNL_QU_NET_C_DEREGISTER,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.internal_flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.doit<sp/>=<sp/>gnl_qu_net_deregister_doit,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.validate<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.cmd<sp/>=<sp/>GNL_QU_NET_C_CONFIG,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.internal_flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.doit<sp/>=<sp/>gnl_qu_net_echo_doit,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.validate<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.cmd<sp/>=<sp/>GNL_QU_NET_C_COMMAND,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.internal_flags<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.doit<sp/>=<sp/>gnl_qu_net_command_doit,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.validate<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/>*<sp/>Attribute<sp/>policy</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">nla_policy<sp/>gnl_qu_net_policy[GNL_QU_NET_ATTRIBUTE_ENUM_LEN]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>[GNL_QU_NET_A_UNSPEC]<sp/>=<sp/>{.type<sp/>=<sp/>NLA_UNSPEC},</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>[GNL_QU_NET_A_MSG]<sp/>=<sp/>{.type<sp/>=<sp/>NLA_NUL_STRING},</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>[GNL_QU_NET_A_DEV_TYPE]<sp/>=<sp/>{.type<sp/>=<sp/>NLA_U32},</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>[GNL_QU_NET_A_ID]<sp/>=<sp/>{.type<sp/>=<sp/>NLA_U32},</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Netlink<sp/>family<sp/>definition<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">genl_family<sp/>gnl_qu_net_family<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>.id<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>.hdrsize<sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>.name<sp/>=<sp/>FAMILY_NAME,</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>.version<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Delegating<sp/>incomming<sp/>requests<sp/>to<sp/>callback<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>.ops<sp/>=<sp/>gnl_qu_net_ops,<sp/></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>length<sp/>of<sp/>array<sp/>&apos;gnl_qu_net_ops&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>.n_ops<sp/>=<sp/>GNL_QU_NET_OPS_LEN,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>INVESTIGATE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>.policy<sp/>=<sp/>gnl_qu_net_policy,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>DONE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>.maxattr<sp/>=<sp/>GNL_QU_NET_ATTRIBUTE_ENUM_LEN,<sp/></highlight><highlight class="comment">//<sp/>Implemented</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>.module<sp/>=<sp/>THIS_MODULE,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>.parallel_ops<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>.pre_doit<sp/>=<sp/>NULL,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>.post_doit<sp/>=<sp/>NULL};</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*<sp/>Kernel<sp/>initialization<sp/>function;<sp/>ran<sp/>when<sp/>loading<sp/>the<sp/>module<sp/>into<sp/>the</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/>*<sp/>kernel.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/>*<sp/>@return<sp/>0<sp/>if<sp/>succesfull</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>__init<sp/>simulated_quantum_network_kernel_module_init(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rc;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>printk(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;QNDKM<sp/>Module<sp/>is<sp/>being<sp/>inserted.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>printk(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Register<sp/>family<sp/>with<sp/>its<sp/>operations<sp/>and<sp/>policies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>rc<sp/>=<sp/>genl_register_family(&amp;gnl_qu_net_family);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;Registering<sp/>policies.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rc<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;FAILED:<sp/>genl_register_family():<sp/>%i\n&quot;</highlight><highlight class="normal">,<sp/>rc);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;An<sp/>error<sp/>occurred<sp/>while<sp/>inserting<sp/>the<sp/>generic<sp/>netlink<sp/>example<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;module\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;successfully<sp/>registered<sp/>custom<sp/>Netlink<sp/>family<sp/>&apos;&quot;</highlight><highlight class="normal"><sp/>FAMILY_NAME</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&apos;<sp/>using<sp/>Generic<sp/>Netlink.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializeing<sp/>the<sp/>mutex</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/>mutex_init(&amp;qu_dev_mutex);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>__exit<sp/>simulated_quantum_network_kernel_module_exit(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>printk(</highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>printk(</highlight><highlight class="stringliteral">&quot;Simulated<sp/>Quantum<sp/>Network<sp/>Device<sp/>Kernel<sp/>Module<sp/>unloaded!\n\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Unregistering<sp/>family<sp/>name</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>ret<sp/>=<sp/>genl_unregister_family(&amp;gnl_qu_net_family);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;genl_unregister_family()<sp/>failed:<sp/>%i\n&quot;</highlight><highlight class="normal">,<sp/>ret);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;successfully<sp/>unregistered<sp/>custom<sp/>Netlink<sp/>family<sp/>&apos;&quot;</highlight><highlight class="normal"><sp/>FAMILY_NAME</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;&apos;<sp/>using<sp/>Generic<sp/>Netlink.\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/>Registering<sp/>init<sp/>exit<sp/>modules</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">module_init(simulated_quantum_network_kernel_module_init);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal">module_exit(simulated_quantum_network_kernel_module_exit);</highlight></codeline>
+    </programlisting>
+    <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c"/>
+  </compounddef>
+</doxygen>

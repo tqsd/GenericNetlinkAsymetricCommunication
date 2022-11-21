@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="types_8h" kind="file" language="C++">
+    <compoundname>types.h</compoundname>
+    <includedby refid="quantum__network__device__kernel__module_8c" local="yes">/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c</includedby>
+    <includedby refid="command_8c" local="yes">/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/command.c</includedby>
+    <includedby refid="echo_8c" local="yes">/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/echo.c</includedby>
+    <includedby refid="register_8c" local="yes">/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/register.c</includedby>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="types_8h_1a2badde9dbcf798ac3a058da3b40067c6" prot="public" static="no" mutable="no">
+        <type>struct genl_family</type>
+        <definition>struct genl_family gnl_qu_net_family</definition>
+        <argsstring></argsstring>
+        <name>gnl_qu_net_family</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/types.h" line="4" column="25" bodyfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/quantum_network_device_kernel_module.c" bodystart="101" bodyend="-1" declfile="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/types.h" declline="4" declcolumn="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TYPES_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TYPES_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">genl_family<sp/>gnl_qu_net_family;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>TYPES_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/simon/Projects/Conquiest-project/01-netlink-kernel-module/src/types.h"/>
+  </compounddef>
+</doxygen>
