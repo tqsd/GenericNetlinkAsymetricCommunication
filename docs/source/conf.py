@@ -5,12 +5,9 @@
 import subprocess, os
 
 # Doxygen
-print("TEST")
-wd = os.getcwd()
-os.chdir("..")
-print(os.getcwd())
-subprocess.call('doxygen', shell=True)
-os.chdir(wd)
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+if read_the_docs_build:
+     subprocess.call('cd ../doxygen; doxygen', shell=True)
 
 
 # -- Project information -----------------------------------------------------
