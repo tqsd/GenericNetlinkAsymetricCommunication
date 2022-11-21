@@ -6,14 +6,10 @@
 #include "qu_netlink.h"
 #include "register.h"
 #include "types.h"
-#include <linux/kernel.h> /* We're doing kernel work */
-#include <linux/module.h> /* Specifically, a module  */
+#include <linux/kernel.h>
+#include <linux/module.h>
 #include <linux/string.h>
-/*
-**  gnl_qu_net_command_doit
-**
-**  Passes messages between the control and node
-*/
+
 int gnl_qu_net_command_doit(struct sk_buff *sender_skb,
                             struct genl_info *info) {
 
@@ -60,16 +56,16 @@ int gnl_qu_net_command_doit(struct sk_buff *sender_skb,
     }
 
     dev_id = nla_data(na_dev_id);
-    pass_to_node(info, *dev_id, recv_msg);
+    pass_to_process(info, *dev_id, recv_msg);
   } else {
     pr_info("Should pass to the simulation control_module");
-    pass_to_scm(info, recv_msg);
+    pass_to_control_module(info, recv_msg);
   }
 
   return 0;
 }
 
-int pass_to_scm(struct genl_info *info, char *msg) {
+int pass_to_control_module(struct genl_info *info, char *msg) {
   int rc;
   void *pkt_head;
   struct sk_buff *pkt;
@@ -104,7 +100,7 @@ int pass_to_scm(struct genl_info *info, char *msg) {
   return 0;
 }
 
-int pass_to_node(struct genl_info *info, int node_id, char *msg) {
+int pass_to_process(struct genl_info *info, int node_id, char *msg) {
   int rc;
   void *pkt_head;
   struct sk_buff *pkt;

@@ -66,8 +66,8 @@ int gnl_qu_net_register_doit(struct sk_buff *sender_skb,
 ** control module and by adding the device
 ** info (genl_info) to the array of known devices
 **
-** @param *sender_skb passed by the netlik kernel module
-** @param *info passed by the netlink kernel module
+** @param *sk_buff passed by the netlik kernel module
+** @param *genl_info passed by the netlink kernel module
 **
 */
 int gnl_qu_net_deregister_doit(struct sk_buff *sender_skb,

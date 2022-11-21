@@ -38,9 +38,6 @@ void deregister_control_module(struct qu_device qu_control_module) {
   control_module.type = NOT_A_DEVICE;
 }
 
-// Checks if there are empty slots in the device array
-// so no new memory will be allocated if there are empty slots already
-// Room for optimization
 int empty_device_slots(void) {
   for (int i = 0; i < qu_devices_allocated; i++) {
     if (qu_devices[i].type == NOT_A_DEVICE) {
@@ -78,11 +75,6 @@ int register_device(struct qu_device qudev) {
   return alloc_index;
 }
 
-/*
- * deregister_device()
- * Changes the device to NOT_A_DEVICE and lets the simulation control module
- * know that this device disconnected
- */
 int deregister_device(struct qu_device qu_dev, int *id) {
   mutex_lock(&qu_dev_mutex);
 
@@ -106,10 +98,6 @@ int deregister_device(struct qu_device qu_dev, int *id) {
   return 0;
 }
 
-/*
- * Function that sends back the success flag of the register/unregister
- * operation
- */
 int register_response(int assigned_device_id, struct sk_buff *request,
                       struct genl_info *info, char *msg) {
   int rc;
@@ -156,11 +144,6 @@ int register_response(int assigned_device_id, struct sk_buff *request,
   return 0;
 }
 
-/*
- * register_with_simulation_control_module()
- * sends the message to the simulation control module
- * so it knows about the new hardware, that needs to be simulated
- */
 int register_with_simulation_control_module(int assigned_device_id,
                                             struct genl_info *info, char *msg) {
   int rc;
@@ -212,13 +195,6 @@ int register_with_simulation_control_module(int assigned_device_id,
   return 0;
 }
 
-/*
- * gnl_qu_net_register_doit()
- * This callback function is called when a command GNL_QU_NET_C_REGISTER is
- * received, the command is accompanied by a device type enumeration.
- * Only one simulation control module can be registered with one netlink
- * family.
- */
 int gnl_qu_net_register_doit(struct sk_buff *sender_skb,
                              struct genl_info *info) {
   struct nlattr *na_dev_type;
@@ -292,9 +268,6 @@ int gnl_qu_net_register_doit(struct sk_buff *sender_skb,
   return 0;
 }
 
-/*
- * Deregistration callback function
- */
 int gnl_qu_net_deregister_doit(struct sk_buff *sender_skb,
                                struct genl_info *info) {
   struct nlattr *na_dev_type;

@@ -11,3 +11,5 @@ htmlcov
 *.org
 .venv
 docs/doxygen
+
+docs/_build
