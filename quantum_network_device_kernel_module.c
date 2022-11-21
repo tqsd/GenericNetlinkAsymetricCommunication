@@ -1,6 +1,5 @@
 /** @quantum_network_device_kernel_module.c */
 
-#include "./qndkm.h"
 #include "./src/command.h"
 #include "./src/config.h"
 #include "./src/echo.h"
@@ -9,7 +8,7 @@
 #include "./src/types.h"
 #include <linux/module.h>
 #include <net/genetlink.h>
-
+// TODO find out if this can be determined at compile time
 #define DEV_NAME                                                               \
   "qunet_virt" /*!< Netlink family name, can be changed via provided           \
                   utilities*/
@@ -55,6 +54,12 @@ struct genl_ops gnl_qu_net_ops[GNL_QU_NET_OPS_LEN] = {
         .validate = 0,
     },
     {
+        /*
+        ** Registering tells the kernel module, which processes
+        ** are currently active and can be communicated with.
+        ** It requires the Control module to be registered,
+        ** before other parties
+        */
         .cmd = GNL_QU_NET_C_REGISTER,
         .flags = 0,
         .internal_flags = 0,
@@ -64,6 +69,12 @@ struct genl_ops gnl_qu_net_ops[GNL_QU_NET_OPS_LEN] = {
         .done = NULL,
         .validate = 0,
     },
+    /*
+    ** Deregistering lets the kernel module know, which
+    ** processes will no longer be communicating through
+    ** the netlink kernel. They also pass the message
+    ** to the Control module.
+    */
     {
         .cmd = GNL_QU_NET_C_DEREGISTER,
         .flags = 0,
@@ -71,6 +82,10 @@ struct genl_ops gnl_qu_net_ops[GNL_QU_NET_OPS_LEN] = {
         .doit = gnl_qu_net_deregister_doit,
         .validate = 0,
     },
+    /*
+    ** Config is meant for configuration, but will
+    ** be depracated.
+    */
     {
         .cmd = GNL_QU_NET_C_CONFIG,
         .flags = 0,
@@ -78,6 +93,10 @@ struct genl_ops gnl_qu_net_ops[GNL_QU_NET_OPS_LEN] = {
         .doit = gnl_qu_net_echo_doit,
         .validate = 0,
     },
+    /*
+    ** Command is meant to pass messages between
+    ** the parties, will be renamed.
+    */
     {
         .cmd = GNL_QU_NET_C_COMMAND,
         .flags = 0,
@@ -97,15 +116,25 @@ static struct nla_policy gnl_qu_net_policy[GNL_QU_NET_ATTRIBUTE_ENUM_LEN] = {
     [GNL_QU_NET_A_ID] = {.type = NLA_U32},
 };
 
-/* Netlink family definition */
+/*
+** gnl_qu_net_family definition
+**
+** Here we define the struct, which describes
+** the netlink family. Important are:
+**  - FAMILY_NAME
+**  - .ops   => struct, that tells the kernel module which
+**              callback functions should be called, given
+**              a command
+**  - .n_ops => Number of possible operations
+**  - .policy => Policy struct, where we defined possible message content types
+**  - .maxattr => number of attributes defined
+*/
 struct genl_family gnl_qu_net_family = {
     .id = 0,
     .hdrsize = 0,
     .name = FAMILY_NAME,
     .version = 1,
-    // Delegating incomming requests to callback functions
-    .ops = gnl_qu_net_ops, // TODO
-    // length of array 'gnl_qu_net_ops'
+    .ops = gnl_qu_net_ops,
     .n_ops = GNL_QU_NET_OPS_LEN,              // INVESTIGATE
     .policy = gnl_qu_net_policy,              // DONE
     .maxattr = GNL_QU_NET_ATTRIBUTE_ENUM_LEN, // Implemented
