@@ -5,7 +5,13 @@
 import subprocess, os
 
 # Doxygen
-subprocess.call('doxygen Doxyfile.in', shell=True)
+print("TEST")
+wd = os.getcwd()
+os.chdir("..")
+print(os.getcwd())
+subprocess.call('doxygen', shell=True)
+os.chdir(wd)
+
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
