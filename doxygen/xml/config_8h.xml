@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="config_8h" kind="file" language="C++">
+    <compoundname>config.h</compoundname>
+    <includedby refid="quantum__network__device__kernel__module_8c" local="yes">quantum_network_device_kernel_module.c</includedby>
+    <includedby refid="config_8c" local="yes">src/config.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>quantum_network_device_kernel_module.c</label>
+        <link refid="quantum__network__device__kernel__module_8c"/>
+      </node>
+      <node id="3">
+        <label>src/config.c</label>
+        <link refid="config_8c"/>
+      </node>
+      <node id="1">
+        <label>src/config.h</label>
+        <link refid="config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="config_8h_1aaf677d37bcdd1865699207d9b95b2ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_config_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_config_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/config.h" line="5" column="5" bodyfile="src/config.c" bodystart="9" bodyend="12" declfile="src/config.h" declline="5" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>CONFIG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONFIG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NETLINK<sp/>callback<sp/>function<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="config_8h_1aaf677d37bcdd1865699207d9b95b2ab3" kindref="member">gnl_qu_net_config_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*info);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>CONFIG_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/config.h"/>
+  </compounddef>
+</doxygen>

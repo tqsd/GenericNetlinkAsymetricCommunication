@@ -1,0 +1,128 @@
+\hypertarget{quantum__network__device__kernel__module_8c}{}\doxysection{quantum\+\_\+network\+\_\+device\+\_\+kernel\+\_\+module.\+c File Reference}
+\label{quantum__network__device__kernel__module_8c}\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+{\ttfamily \#include \char`\"{}./qndkm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/command.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/echo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/qu\+\_\+netlink.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/register.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}./src/types.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$linux/module.\+h$>$}\newline
+{\ttfamily \#include $<$net/genetlink.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{quantum__network__device__kernel__module_8c_abcb3b88a2ffb4f61a9248acb1ef5a1f6}{DEV\+\_\+\+NAME}}~  \char`\"{}qunet\+\_\+virt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}{GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+OPS\+\_\+\+LEN}}~(\mbox{\hyperlink{qu__netlink_8h_a4a6bd720e1a3563a73823803477d1303}{GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+COMMAND\+\_\+\+COUNT}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_ad94b36675e7eb067ea3ce6ff9e244a44}{MODULE\+\_\+\+LICENSE}} (\char`\"{}GPL\char`\"{})
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_a55c7c67613dfdca1ac3dcbfd9ebfd110}{MODULE\+\_\+\+AUTHOR}} (\char`\"{}Simon Sekavčnik\char`\"{})
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_ac13d0d9d639931d85c583f79c5be9251}{MODULE\+\_\+\+DESCRIPTION}} (\char`\"{}Kernel interface, which exposes the interface to \char`\"{} \char`\"{}simulated/real quantum networking hardware\char`\"{})
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_abd0d9b4a65c0b5576a8c7b713f86f84e}{MODULE\+\_\+\+VERSION}} (\char`\"{}0.\+01\char`\"{})
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_a46149abfbfd99236ff778347d26bc1e6}{module\+\_\+init}} (simulated\+\_\+quantum\+\_\+network\+\_\+kernel\+\_\+module\+\_\+init)
+\item 
+\mbox{\hyperlink{quantum__network__device__kernel__module_8c_aa50fd8200b072dfed61ba19d3f1d358f}{module\+\_\+exit}} (simulated\+\_\+quantum\+\_\+network\+\_\+kernel\+\_\+module\+\_\+exit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct genl\+\_\+ops \mbox{\hyperlink{quantum__network__device__kernel__module_8c_af13f3b43f5a2d6ca7401f877f5fefa96}{gnl\+\_\+qu\+\_\+net\+\_\+ops}} \mbox{[}\mbox{\hyperlink{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}{GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+OPS\+\_\+\+LEN}}\mbox{]}
+\item 
+struct genl\+\_\+family \mbox{\hyperlink{quantum__network__device__kernel__module_8c_a2badde9dbcf798ac3a058da3b40067c6}{gnl\+\_\+qu\+\_\+net\+\_\+family}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_abcb3b88a2ffb4f61a9248acb1ef5a1f6}\label{quantum__network__device__kernel__module_8c_abcb3b88a2ffb4f61a9248acb1ef5a1f6}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!DEV\_NAME@{DEV\_NAME}}
+\index{DEV\_NAME@{DEV\_NAME}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{DEV\_NAME}{DEV\_NAME}}
+{\footnotesize\ttfamily \#define DEV\+\_\+\+NAME~  \char`\"{}qunet\+\_\+virt\char`\"{}}
+
+@quantum\+\_\+network\+\_\+device\+\_\+kernel\+\_\+module.c Netlink family name, can be changed via provided \textbackslash{} utilities \mbox{\Hypertarget{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}\label{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!GNL\_QU\_NET\_OPS\_LEN@{GNL\_QU\_NET\_OPS\_LEN}}
+\index{GNL\_QU\_NET\_OPS\_LEN@{GNL\_QU\_NET\_OPS\_LEN}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{GNL\_QU\_NET\_OPS\_LEN}{GNL\_QU\_NET\_OPS\_LEN}}
+{\footnotesize\ttfamily \#define GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+OPS\+\_\+\+LEN~(\mbox{\hyperlink{qu__netlink_8h_a4a6bd720e1a3563a73823803477d1303}{GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+COMMAND\+\_\+\+COUNT}})}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_a55c7c67613dfdca1ac3dcbfd9ebfd110}\label{quantum__network__device__kernel__module_8c_a55c7c67613dfdca1ac3dcbfd9ebfd110}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!MODULE\_AUTHOR@{MODULE\_AUTHOR}}
+\index{MODULE\_AUTHOR@{MODULE\_AUTHOR}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{MODULE\_AUTHOR()}{MODULE\_AUTHOR()}}
+{\footnotesize\ttfamily MODULE\+\_\+\+AUTHOR (\begin{DoxyParamCaption}\item[{\char`\"{}Simon Sekavčnik\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_ac13d0d9d639931d85c583f79c5be9251}\label{quantum__network__device__kernel__module_8c_ac13d0d9d639931d85c583f79c5be9251}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!MODULE\_DESCRIPTION@{MODULE\_DESCRIPTION}}
+\index{MODULE\_DESCRIPTION@{MODULE\_DESCRIPTION}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{MODULE\_DESCRIPTION()}{MODULE\_DESCRIPTION()}}
+{\footnotesize\ttfamily MODULE\+\_\+\+DESCRIPTION (\begin{DoxyParamCaption}\item[{\char`\"{}Kernel}]{interface,  }\item[{which exposes the interface to \char`\"{} \char`\"{}simulated/real quantum networking hardware\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_aa50fd8200b072dfed61ba19d3f1d358f}\label{quantum__network__device__kernel__module_8c_aa50fd8200b072dfed61ba19d3f1d358f}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!module\_exit@{module\_exit}}
+\index{module\_exit@{module\_exit}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{module\_exit()}{module\_exit()}}
+{\footnotesize\ttfamily module\+\_\+exit (\begin{DoxyParamCaption}\item[{simulated\+\_\+quantum\+\_\+network\+\_\+kernel\+\_\+module\+\_\+exit}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_a46149abfbfd99236ff778347d26bc1e6}\label{quantum__network__device__kernel__module_8c_a46149abfbfd99236ff778347d26bc1e6}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!module\_init@{module\_init}}
+\index{module\_init@{module\_init}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{module\_init()}{module\_init()}}
+{\footnotesize\ttfamily module\+\_\+init (\begin{DoxyParamCaption}\item[{simulated\+\_\+quantum\+\_\+network\+\_\+kernel\+\_\+module\+\_\+init}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_ad94b36675e7eb067ea3ce6ff9e244a44}\label{quantum__network__device__kernel__module_8c_ad94b36675e7eb067ea3ce6ff9e244a44}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!MODULE\_LICENSE@{MODULE\_LICENSE}}
+\index{MODULE\_LICENSE@{MODULE\_LICENSE}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{MODULE\_LICENSE()}{MODULE\_LICENSE()}}
+{\footnotesize\ttfamily MODULE\+\_\+\+LICENSE (\begin{DoxyParamCaption}\item[{\char`\"{}GPL\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_abd0d9b4a65c0b5576a8c7b713f86f84e}\label{quantum__network__device__kernel__module_8c_abd0d9b4a65c0b5576a8c7b713f86f84e}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!MODULE\_VERSION@{MODULE\_VERSION}}
+\index{MODULE\_VERSION@{MODULE\_VERSION}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{MODULE\_VERSION()}{MODULE\_VERSION()}}
+{\footnotesize\ttfamily MODULE\+\_\+\+VERSION (\begin{DoxyParamCaption}\item[{\char`\"{}0.\+01\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_a2badde9dbcf798ac3a058da3b40067c6}\label{quantum__network__device__kernel__module_8c_a2badde9dbcf798ac3a058da3b40067c6}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!gnl\_qu\_net\_family@{gnl\_qu\_net\_family}}
+\index{gnl\_qu\_net\_family@{gnl\_qu\_net\_family}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{gnl\_qu\_net\_family}{gnl\_qu\_net\_family}}
+{\footnotesize\ttfamily struct genl\+\_\+family gnl\+\_\+qu\+\_\+net\+\_\+family}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .id = 0,}
+\DoxyCodeLine{    .hdrsize = 0,}
+\DoxyCodeLine{    .name = \mbox{\hyperlink{qu__netlink_8h_ad30be674423be07519e679575e66a538}{FAMILY\_NAME}},}
+\DoxyCodeLine{    .version = 1,}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    .ops = \mbox{\hyperlink{quantum__network__device__kernel__module_8c_af13f3b43f5a2d6ca7401f877f5fefa96}{gnl\_qu\_net\_ops}}, }
+\DoxyCodeLine{    }
+\DoxyCodeLine{    .n\_ops = \mbox{\hyperlink{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}{GNL\_QU\_NET\_OPS\_LEN}},              }
+\DoxyCodeLine{    .policy = gnl\_qu\_net\_policy,              }
+\DoxyCodeLine{    .maxattr = \mbox{\hyperlink{qu__netlink_8h_aa1d02f1d98ccfbe3702e29599bb89de8}{GNL\_QU\_NET\_ATTRIBUTE\_ENUM\_LEN}}, }
+\DoxyCodeLine{    .module = THIS\_MODULE,}
+\DoxyCodeLine{    .parallel\_ops = \textcolor{keyword}{true},}
+\DoxyCodeLine{    .pre\_doit = NULL,}
+\DoxyCodeLine{    .post\_doit = NULL\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{quantum__network__device__kernel__module_8c_af13f3b43f5a2d6ca7401f877f5fefa96}\label{quantum__network__device__kernel__module_8c_af13f3b43f5a2d6ca7401f877f5fefa96}} 
+\index{quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}!gnl\_qu\_net\_ops@{gnl\_qu\_net\_ops}}
+\index{gnl\_qu\_net\_ops@{gnl\_qu\_net\_ops}!quantum\_network\_device\_kernel\_module.c@{quantum\_network\_device\_kernel\_module.c}}
+\doxysubsubsection{\texorpdfstring{gnl\_qu\_net\_ops}{gnl\_qu\_net\_ops}}
+{\footnotesize\ttfamily struct genl\+\_\+ops gnl\+\_\+qu\+\_\+net\+\_\+ops\mbox{[}\mbox{\hyperlink{quantum__network__device__kernel__module_8c_ac125f7d30bf064c9d0377e84916309e6}{GNL\+\_\+\+QU\+\_\+\+NET\+\_\+\+OPS\+\_\+\+LEN}}\mbox{]}}
+

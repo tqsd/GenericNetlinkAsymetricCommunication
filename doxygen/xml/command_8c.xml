@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="command_8c" kind="file" language="C++">
+    <compoundname>command.c</compoundname>
+    <includes refid="command_8h" local="yes">command.h</includes>
+    <includes local="no">linux/slab.h</includes>
+    <includes local="no">net/genetlink.h</includes>
+    <includes refid="qu__netlink_8h" local="yes">qu_netlink.h</includes>
+    <includes refid="register_8h" local="yes">register.h</includes>
+    <includes refid="types_8h" local="yes">types.h</includes>
+    <includes local="no">linux/kernel.h</includes>
+    <includes local="no">linux/module.h</includes>
+    <includes local="no">linux/string.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/command.c</label>
+        <link refid="command_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>command.h</label>
+        <link refid="command_8h"/>
+      </node>
+      <node id="5">
+        <label>qu_netlink.h</label>
+        <link refid="qu__netlink_8h"/>
+      </node>
+      <node id="6">
+        <label>register.h</label>
+        <link refid="register_8h"/>
+      </node>
+      <node id="7">
+        <label>types.h</label>
+        <link refid="types_8h"/>
+      </node>
+      <node id="8">
+        <label>linux/kernel.h</label>
+      </node>
+      <node id="9">
+        <label>linux/module.h</label>
+      </node>
+      <node id="3">
+        <label>linux/slab.h</label>
+      </node>
+      <node id="10">
+        <label>linux/string.h</label>
+      </node>
+      <node id="4">
+        <label>net/genetlink.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="command_8c_1afb136d7999aac8acddf1cd7ebfc992bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_command_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_command_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.c" line="17" column="5" bodyfile="src/command.c" bodystart="17" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="command_8c_1a990ef9278778128c9af0819bb8f3f264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int pass_to_scm</definition>
+        <argsstring>(struct genl_info *info, char *msg)</argsstring>
+        <name>pass_to_scm</name>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.c" line="72" column="5" bodyfile="src/command.c" bodystart="72" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="command_8c_1a1b363a4ab97ce925037e690e49cff589" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int pass_to_node</definition>
+        <argsstring>(struct genl_info *info, int node_id, char *msg)</argsstring>
+        <name>pass_to_node</name>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.c" line="107" column="5" bodyfile="src/command.c" bodystart="107" bodyend="137"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="command_8h" kindref="compound">command.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;linux/slab.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;net/genetlink.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="qu__netlink_8h" kindref="compound">qu_netlink.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="register_8h" kindref="compound">register.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="types_8h" kindref="compound">types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;linux/kernel.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*<sp/>We&apos;re<sp/>doing<sp/>kernel<sp/>work<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;linux/module.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">/*<sp/>Specifically,<sp/>a<sp/>module<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;linux/string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">**<sp/><sp/>gnl_qu_net_command_doit</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">**</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">**<sp/><sp/>Passes<sp/>messages<sp/>between<sp/>the<sp/>control<sp/>and<sp/>node</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8c_1afb136d7999aac8acddf1cd7ebfc992bd" kindref="member">gnl_qu_net_command_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*info)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">nlattr<sp/>*na_msg;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">nlattr<sp/>*na_dev_type;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">nlattr<sp/>*na_dev_id;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*recv_msg;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*recv_dev_type;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*dev_id;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="register_8h_1add57988c892c423bff906e04292510df" kindref="member">DEVICE_TYPE</ref><sp/>dev_type;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;An<sp/>error<sp/>occured<sp/>in<sp/>%s():<sp/>\n&quot;</highlight><highlight class="normal">,<sp/>__func__);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-EINVAL;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>na_dev_type<sp/>=<sp/>info-&gt;attrs[<ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a3fc1633618daaee5ab0bb3668d13b6b0" kindref="member">GNL_QU_NET_A_DEV_TYPE</ref>];</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>na_msg<sp/>=<sp/>info-&gt;attrs[<ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5" kindref="member">GNL_QU_NET_A_MSG</ref>];</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!na_dev_type<sp/>||<sp/>!na_msg)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;no<sp/>info-&gt;attrs[%i]\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a3fc1633618daaee5ab0bb3668d13b6b0" kindref="member">GNL_QU_NET_A_DEV_TYPE</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;no<sp/>info-&gt;attrs[%i]\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5" kindref="member">GNL_QU_NET_A_MSG</ref>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-EINVAL;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>recv_msg<sp/>=<sp/>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*)nla_data(na_msg);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>recv_dev_type<sp/>=<sp/>nla_data(na_dev_type);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(recv_msg<sp/>==<sp/>NULL<sp/>||<sp/>recv_dev_type<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;Error<sp/>while<sp/>receiving<sp/>data\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;received:<sp/>&apos;%s&apos;\n&quot;</highlight><highlight class="normal">,<sp/>recv_msg);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>dev_type<sp/>=<sp/><ref refid="register_8c_1a03ae670e432d5469a6409edf63703028" kindref="member">msg_to_DEVICE_TYPE</ref>(recv_dev_type);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(dev_type<sp/>==<sp/><ref refid="register_8h_1add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482" kindref="member">SIMULATION_CONTROL_MODULE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;SIMULATION_CONTROL_MODULE<sp/>responded<sp/>with<sp/>command<sp/>response&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;Should<sp/>pass<sp/>to<sp/>the<sp/>node&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>na_dev_id<sp/>=<sp/>info-&gt;attrs[<ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9f63a8430ce7a80ba8773faef22d3bd0" kindref="member">GNL_QU_NET_A_ID</ref>];</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!na_dev_id)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;no<sp/>info-&gt;attrs[%i]\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9f63a8430ce7a80ba8773faef22d3bd0" kindref="member">GNL_QU_NET_A_ID</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-EINVAL;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>dev_id<sp/>=<sp/>nla_data(na_dev_id);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="command_8c_1a1b363a4ab97ce925037e690e49cff589" kindref="member">pass_to_node</ref>(info,<sp/>*dev_id,<sp/>recv_msg);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;Should<sp/>pass<sp/>to<sp/>the<sp/>simulation<sp/>control_module&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="command_8c_1a990ef9278778128c9af0819bb8f3f264" kindref="member">pass_to_scm</ref>(info,<sp/>recv_msg);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8c_1a990ef9278778128c9af0819bb8f3f264" kindref="member">pass_to_scm</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*info,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rc;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pkt_head;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*pkt;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>mutex_lock(&amp;<ref refid="register_8c_1a36f6e8f51c49c00548335699f2e8d5f8" kindref="member">controller_module</ref>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>pkt<sp/>=<sp/>genlmsg_new(NLMSG_GOODSIZE,<sp/>GFP_KERNEL);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pkt<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-ENOMEM;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="register_8c_1a2ed3992c3d405e0eb4aa780573641b56" kindref="member">control_module</ref>.<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_seq++;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>pkt_head<sp/>=<sp/>genlmsg_put(pkt,<sp/><ref refid="register_8c_1a2ed3992c3d405e0eb4aa780573641b56" kindref="member">control_module</ref>.<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_portid,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="register_8c_1a2ed3992c3d405e0eb4aa780573641b56" kindref="member">control_module</ref>.<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_seq,<sp/>&amp;<ref refid="quantum__network__device__kernel__module_8c_1a2badde9dbcf798ac3a058da3b40067c6" kindref="member">gnl_qu_net_family</ref>,<sp/>0,</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a5cd3557633e92a8e16fde1f2655f1d95" kindref="member">GNL_QU_NET_C_COMMAND</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pkt_head<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-ENOMEM;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>!=<sp/>nla_put_string(pkt,<sp/><ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5" kindref="member">GNL_QU_NET_A_MSG</ref>,<sp/>msg))<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-EINVAL;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>genlmsg_end(pkt,<sp/>pkt_head);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>rc<sp/>=</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>genlmsg_unicast(genl_info_net(info),<sp/>pkt,<sp/><ref refid="register_8c_1a2ed3992c3d405e0eb4aa780573641b56" kindref="member">control_module</ref>.<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_portid);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rc<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;An<sp/>error<sp/>occurred<sp/>in<sp/>%s():\n&quot;</highlight><highlight class="normal">,<sp/>__func__);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-rc;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>mutex_unlock(&amp;<ref refid="register_8c_1a36f6e8f51c49c00548335699f2e8d5f8" kindref="member">controller_module</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8c_1a1b363a4ab97ce925037e690e49cff589" kindref="member">pass_to_node</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*info,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>node_id,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rc;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*pkt_head;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*pkt;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>pkt<sp/>=<sp/>genlmsg_new(NLMSG_GOODSIZE,<sp/>GFP_KERNEL);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pkt<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-ENOMEM;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="register_8c_1a297e3ba955f4221edee8c4ce5f60ed30" kindref="member">qu_devices</ref>[node_id].<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_seq++;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>pkt_head<sp/>=<sp/>genlmsg_put(pkt,<sp/><ref refid="register_8c_1a297e3ba955f4221edee8c4ce5f60ed30" kindref="member">qu_devices</ref>[node_id].info.snd_portid,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="register_8c_1a297e3ba955f4221edee8c4ce5f60ed30" kindref="member">qu_devices</ref>[node_id].<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>.snd_seq,<sp/>&amp;<ref refid="quantum__network__device__kernel__module_8c_1a2badde9dbcf798ac3a058da3b40067c6" kindref="member">gnl_qu_net_family</ref>,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/><ref refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a5cd3557633e92a8e16fde1f2655f1d95" kindref="member">GNL_QU_NET_C_COMMAND</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pkt_head<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-ENOMEM;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>!=<sp/>nla_put_string(pkt,<sp/><ref refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5" kindref="member">GNL_QU_NET_A_MSG</ref>,<sp/>msg))<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-EINVAL;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>genlmsg_end(pkt,<sp/>pkt_head);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>rc<sp/>=<sp/>genlmsg_unicast(genl_info_net(info),<sp/>pkt,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="register_8c_1a297e3ba955f4221edee8c4ce5f60ed30" kindref="member">qu_devices</ref>[node_id].info.snd_portid);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rc<sp/>!=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>pr_err(</highlight><highlight class="stringliteral">&quot;An<sp/>error<sp/>occurred<sp/>in<sp/>%s():\n&quot;</highlight><highlight class="normal">,<sp/>__func__);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-rc;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/command.c"/>
+  </compounddef>
+</doxygen>

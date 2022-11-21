@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="command_8h" kind="file" language="C++">
+    <compoundname>command.h</compoundname>
+    <includedby refid="quantum__network__device__kernel__module_8c" local="yes">quantum_network_device_kernel_module.c</includedby>
+    <includedby refid="command_8c" local="yes">src/command.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>quantum_network_device_kernel_module.c</label>
+        <link refid="quantum__network__device__kernel__module_8c"/>
+      </node>
+      <node id="3">
+        <label>src/command.c</label>
+        <link refid="command_8c"/>
+      </node>
+      <node id="1">
+        <label>src/command.h</label>
+        <link refid="command_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" prot="public" static="no">
+        <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref></type>
+        <definition>typedef struct genl_info genl_info</definition>
+        <argsstring></argsstring>
+        <name>genl_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="4" column="24" bodyfile="src/command.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="command_8h_1ae16c92b8b9283dc0983900820c5834b2" prot="public" static="no">
+        <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref></type>
+        <definition>typedef struct sk_buff sk_buff</definition>
+        <argsstring></argsstring>
+        <name>sk_buff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="5" column="22" bodyfile="src/command.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="command_8h_1a745f79467eba54fad197b98a60bde838" prot="public" static="no">
+        <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+        <definition>typedef struct qu_device qu_device</definition>
+        <argsstring></argsstring>
+        <name>qu_device</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="6" column="24" bodyfile="src/command.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="command_8h_1afb136d7999aac8acddf1cd7ebfc992bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_command_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_command_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="8" column="5" bodyfile="src/command.c" bodystart="17" bodyend="70" declfile="src/command.h" declline="8" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="command_8h_1a990ef9278778128c9af0819bb8f3f264" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int pass_to_scm</definition>
+        <argsstring>(struct genl_info *info, char *msg)</argsstring>
+        <name>pass_to_scm</name>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="9" column="5" bodyfile="src/command.c" bodystart="72" bodyend="105" declfile="src/command.h" declline="9" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="command_8h_1a1b363a4ab97ce925037e690e49cff589" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int pass_to_node</definition>
+        <argsstring>(struct genl_info *info, int node_id, char *msg)</argsstring>
+        <name>pass_to_node</name>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_id</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/command.h" line="10" column="5" bodyfile="src/command.c" bodystart="107" bodyend="137" declfile="src/command.h" declline="10" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>COMMAND_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMMAND_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref>;</highlight></codeline>
+<codeline lineno="5" refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref>;</highlight></codeline>
+<codeline lineno="6" refid="command_8h_1a745f79467eba54fad197b98a60bde838" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NETLINK<sp/>callback<sp/>function<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8h_1afb136d7999aac8acddf1cd7ebfc992bd" kindref="member">gnl_qu_net_command_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a990ef9278778128c9af0819bb8f3f264" kindref="member">pass_to_scm</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a1b363a4ab97ce925037e690e49cff589" kindref="member">pass_to_node</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>node_id,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>COMMAND_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/command.h"/>
+  </compounddef>
+</doxygen>

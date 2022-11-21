@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Table<sp/>of<sp/>Contents</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/><sp/>[Description](#orgfcd398a)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/><sp/>[Instructions](#orgc72f694)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>1.<sp/><sp/>[Automatic<sp/>setup](#orgb73b514)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>2.<sp/><sp/>[Manual<sp/>Setup](#orgc1cce9e)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;a<sp/>id=&quot;orgfcd398a&quot;&gt;&lt;/a&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Description</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Generic<sp/>Netlink<sp/>Asymetric<sp/>Communication<sp/>kernel<sp/>module<sp/>allows<sp/>for<sp/>different</highlight></codeline>
+<codeline><highlight class="normal">processes<sp/>to<sp/>communicate<sp/>through<sp/>the<sp/>netlink<sp/>protocol.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;a<sp/>id=&quot;orgc72f694&quot;&gt;&lt;/a&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Instructions</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;a<sp/>id=&quot;orgb73b514&quot;&gt;&lt;/a&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Automatic<sp/>setup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>command<sp/>line<sp/>utility<sp/>is<sp/>provided<sp/>in<sp/>order<sp/>to<sp/>interact<sp/>with<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">kernel<sp/>module.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Compile<sp/>the<sp/>module<sp/>with<sp/>specific<sp/>netlink<sp/>family<sp/>name:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>load<sp/>the<sp/>last<sp/>compiled<sp/>module:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>unload<sp/>the<sp/>module<sp/>with<sp/>specific<sp/>netlink<sp/>family<sp/>name:</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;a<sp/>id=&quot;orgc1cce9e&quot;&gt;&lt;/a&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Manual<sp/>Setup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>compile<sp/>the<sp/>module:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>make</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>load<sp/>the<sp/>module<sp/>into<sp/>the<sp/>kernel:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>sudo<sp/>insmod<sp/>driver.ko</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="config_8c" kind="file" language="C++">
+    <compoundname>config.c</compoundname>
+    <includes refid="config_8h" local="yes">config.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/config.c</label>
+        <link refid="config_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>config.h</label>
+        <link refid="config_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="config_8c_1aaf677d37bcdd1865699207d9b95b2ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_config_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_config_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/config.c" line="9" column="5" bodyfile="src/config.c" bodystart="9" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_8h" kindref="compound">config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>gnl_qu_net_config_doit()</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>Callback<sp/>function<sp/>is<sp/>called<sp/>when<sp/>a<sp/>userspace<sp/>program</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>tries<sp/>to<sp/>modify<sp/>the<sp/>device</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="config_8c_1aaf677d37bcdd1865699207d9b95b2ab3" kindref="member">gnl_qu_net_config_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*info)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/>pr_info(</highlight><highlight class="stringliteral">&quot;CONFIG<sp/>COMMAND<sp/>NETLINK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/config.c"/>
+  </compounddef>
+</doxygen>

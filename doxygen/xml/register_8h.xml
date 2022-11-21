@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="register_8h" kind="file" language="C++">
+    <compoundname>register.h</compoundname>
+    <includedby refid="quantum__network__device__kernel__module_8c" local="yes">quantum_network_device_kernel_module.c</includedby>
+    <includedby refid="command_8c" local="yes">src/command.c</includedby>
+    <includedby refid="register_8c" local="yes">src/register.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>quantum_network_device_kernel_module.c</label>
+        <link refid="quantum__network__device__kernel__module_8c"/>
+      </node>
+      <node id="3">
+        <label>src/command.c</label>
+        <link refid="command_8c"/>
+      </node>
+      <node id="4">
+        <label>src/register.c</label>
+        <link refid="register_8c"/>
+      </node>
+      <node id="1">
+        <label>src/register.h</label>
+        <link refid="register_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structqu__device" prot="public">qu_device</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="register_8h_1a91a8737ea1457ea5a139c7cd4b41e690" prot="public" static="no">
+        <name>NDEVICES</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="4" column="9" bodyfile="src/register.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="register_8h_1add57988c892c423bff906e04292510df" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DEVICE_TYPE</name>
+        <enumvalue id="register_8h_1add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb" prot="public">
+          <name>NOT_A_DEVICE</name>
+          <initializer>= -1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="register_8h_1add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482" prot="public">
+          <name>SIMULATION_CONTROL_MODULE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="register_8h_1add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5" prot="public">
+          <name>QUANTUM_NETWORK_DEVICE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="6" column="1" bodyfile="src/register.h" bodystart="6" bodyend="10"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="register_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" prot="public" static="no">
+        <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref></type>
+        <definition>typedef struct genl_info genl_info</definition>
+        <argsstring></argsstring>
+        <name>genl_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="13" column="24" bodyfile="src/register.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="register_8h_1ae16c92b8b9283dc0983900820c5834b2" prot="public" static="no">
+        <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref></type>
+        <definition>typedef struct sk_buff sk_buff</definition>
+        <argsstring></argsstring>
+        <name>sk_buff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="14" column="22" bodyfile="src/register.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="register_8h_1a745f79467eba54fad197b98a60bde838" prot="public" static="no">
+        <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+        <definition>typedef struct qu_device qu_device</definition>
+        <argsstring></argsstring>
+        <name>qu_device</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="15" column="24" bodyfile="src/register.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="register_8h_1a81c65049221c30c77ebfa6ed5e4b2838" prot="public" static="no" mutable="no">
+        <type>struct mutex</type>
+        <definition>struct mutex qu_dev_mutex</definition>
+        <argsstring></argsstring>
+        <name>qu_dev_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="37" column="19" bodyfile="src/register.c" bodystart="16" bodyend="-1" declfile="src/register.h" declline="37" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="register_8h_1a2ed3992c3d405e0eb4aa780573641b56" prot="public" static="no" mutable="no">
+        <type><ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+        <definition>qu_device control_module</definition>
+        <argsstring></argsstring>
+        <name>control_module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="44" column="18" bodyfile="src/register.c" bodystart="18" bodyend="-1" declfile="src/register.h" declline="44" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="variable" id="register_8h_1a36f6e8f51c49c00548335699f2e8d5f8" prot="public" static="no" mutable="no">
+        <type>struct mutex</type>
+        <definition>struct mutex controller_module</definition>
+        <argsstring></argsstring>
+        <name>controller_module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="45" column="19" bodyfile="src/register.c" bodystart="19" bodyend="-1" declfile="src/register.h" declline="45" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="register_8h_1a297e3ba955f4221edee8c4ce5f60ed30" prot="public" static="no" mutable="no">
+        <type><ref refid="structqu__device" kindref="compound">qu_device</ref> *</type>
+        <definition>qu_device* qu_devices</definition>
+        <argsstring></argsstring>
+        <name>qu_devices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="46" column="18" bodyfile="src/register.c" bodystart="15" bodyend="-1" declfile="src/register.h" declline="46" declcolumn="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="register_8h_1a190220f2a20542bd2788f9488b0c66c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_register_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_register_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="18" column="5" bodyfile="src/register.c" bodystart="222" bodyend="293" declfile="src/register.h" declline="18" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1abdabf9dde5da39300c8e4a78ce7e6748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int gnl_qu_net_deregister_doit</definition>
+        <argsstring>(struct sk_buff *sender_skb, struct genl_info *info)</argsstring>
+        <name>gnl_qu_net_deregister_doit</name>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>sender_skb</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="21" column="5" bodyfile="src/register.c" bodystart="298" bodyend="373" declfile="src/register.h" declline="21" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a03ae670e432d5469a6409edf63703028" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="register_8h_1add57988c892c423bff906e04292510df" kindref="member">DEVICE_TYPE</ref></type>
+        <definition>DEVICE_TYPE msg_to_DEVICE_TYPE</definition>
+        <argsstring>(int *n)</argsstring>
+        <name>msg_to_DEVICE_TYPE</name>
+        <param>
+          <type>int *</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="26" column="13" bodyfile="src/register.c" bodystart="22" bodyend="31" declfile="src/register.h" declline="26" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1ac76320e2b7fb3b31808d9f83ddf7f879" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void register_control_module</definition>
+        <argsstring>(struct qu_device qu_control_module)</argsstring>
+        <name>register_control_module</name>
+        <param>
+          <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+          <declname>qu_control_module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="27" column="6" bodyfile="src/register.c" bodystart="33" bodyend="35" declfile="src/register.h" declline="27" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a455b15ec8fbbc1ca798dcdb2b785adc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void deregister_control_module</definition>
+        <argsstring>(struct qu_device qu_control_module)</argsstring>
+        <name>deregister_control_module</name>
+        <param>
+          <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+          <declname>qu_control_module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="28" column="6" bodyfile="src/register.c" bodystart="37" bodyend="39" declfile="src/register.h" declline="28" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a749e78f7da7428b29fa80e380ec95cfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int register_device</definition>
+        <argsstring>(struct qu_device qudev)</argsstring>
+        <name>register_device</name>
+        <param>
+          <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+          <declname>qudev</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="29" column="5" bodyfile="src/register.c" bodystart="54" bodyend="79" declfile="src/register.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a9fcb25e4070e6b3292a964056babb4c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int deregister_device</definition>
+        <argsstring>(struct qu_device qu_dev, int *id)</argsstring>
+        <name>deregister_device</name>
+        <param>
+          <type>struct <ref refid="structqu__device" kindref="compound">qu_device</ref></type>
+          <declname>qu_dev</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="30" column="5" bodyfile="src/register.c" bodystart="86" bodyend="107" declfile="src/register.h" declline="30" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a5bdc81758e9e563d2e6ae042097c6116" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int register_response</definition>
+        <argsstring>(int assigned_device_id, struct sk_buff *request, struct genl_info *info, char *msg)</argsstring>
+        <name>register_response</name>
+        <param>
+          <type>int</type>
+          <declname>assigned_device_id</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref> *</type>
+          <declname>request</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="31" column="5" bodyfile="src/register.c" bodystart="113" bodyend="157" declfile="src/register.h" declline="31" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1a99083653126e569979517c569092d282" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int empty_device_slots</definition>
+        <argsstring>(void)</argsstring>
+        <name>empty_device_slots</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="33" column="5" bodyfile="src/register.c" bodystart="44" bodyend="52" declfile="src/register.h" declline="33" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="register_8h_1ad45ce3338ecbad4fd7f41b59b09aef94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int register_with_simulation_control_module</definition>
+        <argsstring>(int assigned_device_id, struct genl_info *info, char *msg)</argsstring>
+        <name>register_with_simulation_control_module</name>
+        <param>
+          <type>int</type>
+          <declname>assigned_device_id</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref> *</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/register.h" line="34" column="5" bodyfile="src/register.c" bodystart="164" bodyend="213" declfile="src/register.h" declline="34" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>REGISTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>REGISTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="register_8h_1a91a8737ea1457ea5a139c7cd4b41e690" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NDEVICES<sp/>=<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="register_8h_1add57988c892c423bff906e04292510df" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="7" refid="register_8h_1add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="register_8h_1add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb" kindref="member">NOT_A_DEVICE</ref><sp/>=<sp/>-1,</highlight></codeline>
+<codeline lineno="8" refid="register_8h_1add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="register_8h_1add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482" kindref="member">SIMULATION_CONTROL_MODULE</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><ref refid="register_8h_1add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5" kindref="member">QUANTUM_NETWORK_DEVICE</ref><sp/>=<sp/>1</highlight></codeline>
+<codeline lineno="10" refid="register_8h_1add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5" refkind="member"><highlight class="normal">}<sp/><ref refid="register_8h_1add57988c892c423bff906e04292510df" kindref="member">DEVICE_TYPE</ref>;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Type<sp/>redefinition<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="register_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref>;</highlight></codeline>
+<codeline lineno="14" refid="register_8h_1ae16c92b8b9283dc0983900820c5834b2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref>;</highlight></codeline>
+<codeline lineno="15" refid="register_8h_1a745f79467eba54fad197b98a60bde838" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>NETLINK<sp/>callback<sp/>function<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a190220f2a20542bd2788f9488b0c66c5" kindref="member">gnl_qu_net_register_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1abdabf9dde5da39300c8e4a78ce7e6748" kindref="member">gnl_qu_net_deregister_doit</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*sender_skb,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Internal<sp/>function<sp/>prototypes<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><ref refid="register_8h_1add57988c892c423bff906e04292510df" kindref="member">DEVICE_TYPE</ref><sp/><ref refid="register_8h_1a03ae670e432d5469a6409edf63703028" kindref="member">msg_to_DEVICE_TYPE</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*n);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="register_8h_1ac76320e2b7fb3b31808d9f83ddf7f879" kindref="member">register_control_module</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>qu_control_module);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a455b15ec8fbbc1ca798dcdb2b785adc4" kindref="member">deregister_control_module</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>qu_control_module);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a749e78f7da7428b29fa80e380ec95cfb" kindref="member">register_device</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>qudev);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a9fcb25e4070e6b3292a964056babb4c4" kindref="member">deregister_device</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>qu_dev,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a5bdc81758e9e563d2e6ae042097c6116" kindref="member">register_response</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>assigned_device_id,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kindref="member">sk_buff</ref><sp/>*request,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1a99083653126e569979517c569092d282" kindref="member">empty_device_slots</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="register_8h_1ad45ce3338ecbad4fd7f41b59b09aef94" kindref="member">register_with_simulation_control_module</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>assigned_device_id,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/>*<ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*msg);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">mutex<sp/><ref refid="register_8h_1a81c65049221c30c77ebfa6ed5e4b2838" kindref="member">qu_dev_mutex</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structqu__device" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>{</highlight></codeline>
+<codeline lineno="40" refid="structqu__device_1a655eeb6f5d2117995c910616d2b7d955" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="register_8h_1add57988c892c423bff906e04292510df" kindref="member">DEVICE_TYPE</ref><sp/><ref refid="structqu__device_1a655eeb6f5d2117995c910616d2b7d955" kindref="member">type</ref>;<sp/></highlight><highlight class="comment">//<sp/>Device<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kindref="member">genl_info</ref><sp/><ref refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kindref="member">info</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Process<sp/>identification</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}<sp/><ref refid="register_8h_1a745f79467eba54fad197b98a60bde838" kindref="member">qu_device</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/><ref refid="register_8h_1a2ed3992c3d405e0eb4aa780573641b56" kindref="member">control_module</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">mutex<sp/><ref refid="register_8h_1a36f6e8f51c49c00548335699f2e8d5f8" kindref="member">controller_module</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structqu__device" kindref="compound">qu_device</ref><sp/>*<ref refid="register_8h_1a297e3ba955f4221edee8c4ce5f60ed30" kindref="member">qu_devices</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>REGISTER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/register.h"/>
+  </compounddef>
+</doxygen>

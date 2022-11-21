@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="structqu__device" kind="struct"><name>qu_device</name>
+    <member refid="structqu__device_1a655eeb6f5d2117995c910616d2b7d955" kind="variable"><name>type</name></member>
+    <member refid="structqu__device_1a3c07142317747445b6cabdbf93999b7c" kind="variable"><name>info</name></member>
+  </compound>
+  <compound refid="namespaceconf" kind="namespace"><name>conf</name>
+    <member refid="namespaceconf_1a45653c983098153b78e33600e39230eb" kind="variable"><name>project</name></member>
+    <member refid="namespaceconf_1a33fa97cf51dcb25970fbf53f10159589" kind="variable"><name>copyright</name></member>
+    <member refid="namespaceconf_1a637c239d256432248aa8d9f3ab0b8c52" kind="variable"><name>author</name></member>
+    <member refid="namespaceconf_1a325dc746d8bf05c54d26351c35a21d90" kind="variable"><name>release</name></member>
+    <member refid="namespaceconf_1ae475e080536acb271a0a0efe56c3ba42" kind="variable"><name>extensions</name></member>
+    <member refid="namespaceconf_1ae850ae634911b713e036b43894fdd525" kind="variable"><name>templates_path</name></member>
+    <member refid="namespaceconf_1a7ad48fb6f3e9b129c02346ea0d3527c1" kind="variable"><name>exclude_patterns</name></member>
+    <member refid="namespaceconf_1a6c3bfcc1a44546c1c75ce20f55bd0fd6" kind="variable"><name>html_theme</name></member>
+    <member refid="namespaceconf_1af4fb5d8851ccaade135c2668dd3ced41" kind="variable"><name>html_static_path</name></member>
+    <member refid="namespaceconf_1a332f430461432dc465213f884a1e4967" kind="variable"><name>shell</name></member>
+    <member refid="namespaceconf_1acb47d2c0c2904fa7d36b63142533f383" kind="variable"><name>breathe_projects</name></member>
+    <member refid="namespaceconf_1a6eba2d2c7ae923054b1c49e686ec89b9" kind="variable"><name>breathe_default_project</name></member>
+  </compound>
+  <compound refid="conf_8py" kind="file"><name>conf.py</name>
+  </compound>
+  <compound refid="qndkm_8h" kind="file"><name>qndkm.h</name>
+  </compound>
+  <compound refid="quantum__network__device__kernel__module_8c" kind="file"><name>quantum_network_device_kernel_module.c</name>
+    <member refid="quantum__network__device__kernel__module_8c_1abcb3b88a2ffb4f61a9248acb1ef5a1f6" kind="define"><name>DEV_NAME</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1ac125f7d30bf064c9d0377e84916309e6" kind="define"><name>GNL_QU_NET_OPS_LEN</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1af13f3b43f5a2d6ca7401f877f5fefa96" kind="variable"><name>gnl_qu_net_ops</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a3ddb10da357b90d3aaebb7ceac3060f8" kind="variable"><name>gnl_qu_net_policy</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a2badde9dbcf798ac3a058da3b40067c6" kind="variable"><name>gnl_qu_net_family</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1ad94b36675e7eb067ea3ce6ff9e244a44" kind="function"><name>MODULE_LICENSE</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a55c7c67613dfdca1ac3dcbfd9ebfd110" kind="function"><name>MODULE_AUTHOR</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1ac13d0d9d639931d85c583f79c5be9251" kind="function"><name>MODULE_DESCRIPTION</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1abd0d9b4a65c0b5576a8c7b713f86f84e" kind="function"><name>MODULE_VERSION</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a60acdc57b0ecd935563c57c2954170f6" kind="function"><name>simulated_quantum_network_kernel_module_init</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a75d6def2db97d07e1212febc9a291ea8" kind="function"><name>simulated_quantum_network_kernel_module_exit</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1a46149abfbfd99236ff778347d26bc1e6" kind="function"><name>module_init</name></member>
+    <member refid="quantum__network__device__kernel__module_8c_1aa50fd8200b072dfed61ba19d3f1d358f" kind="function"><name>module_exit</name></member>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="command_8c" kind="file"><name>command.c</name>
+    <member refid="command_8c_1afb136d7999aac8acddf1cd7ebfc992bd" kind="function"><name>gnl_qu_net_command_doit</name></member>
+    <member refid="command_8c_1a990ef9278778128c9af0819bb8f3f264" kind="function"><name>pass_to_scm</name></member>
+    <member refid="command_8c_1a1b363a4ab97ce925037e690e49cff589" kind="function"><name>pass_to_node</name></member>
+  </compound>
+  <compound refid="command_8h" kind="file"><name>command.h</name>
+    <member refid="command_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kind="typedef"><name>genl_info</name></member>
+    <member refid="command_8h_1ae16c92b8b9283dc0983900820c5834b2" kind="typedef"><name>sk_buff</name></member>
+    <member refid="command_8h_1a745f79467eba54fad197b98a60bde838" kind="typedef"><name>qu_device</name></member>
+    <member refid="command_8h_1afb136d7999aac8acddf1cd7ebfc992bd" kind="function"><name>gnl_qu_net_command_doit</name></member>
+    <member refid="command_8h_1a990ef9278778128c9af0819bb8f3f264" kind="function"><name>pass_to_scm</name></member>
+    <member refid="command_8h_1a1b363a4ab97ce925037e690e49cff589" kind="function"><name>pass_to_node</name></member>
+  </compound>
+  <compound refid="config_8c" kind="file"><name>config.c</name>
+    <member refid="config_8c_1aaf677d37bcdd1865699207d9b95b2ab3" kind="function"><name>gnl_qu_net_config_doit</name></member>
+  </compound>
+  <compound refid="config_8h" kind="file"><name>config.h</name>
+    <member refid="config_8h_1aaf677d37bcdd1865699207d9b95b2ab3" kind="function"><name>gnl_qu_net_config_doit</name></member>
+  </compound>
+  <compound refid="echo_8c" kind="file"><name>echo.c</name>
+    <member refid="echo_8c_1a2116661e44dc6fa2ab8322b815bf514c" kind="function"><name>gnl_qu_net_echo_doit</name></member>
+  </compound>
+  <compound refid="echo_8h" kind="file"><name>echo.h</name>
+    <member refid="echo_8h_1ae16c92b8b9283dc0983900820c5834b2" kind="typedef"><name>sk_buff</name></member>
+    <member refid="echo_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kind="typedef"><name>genl_info</name></member>
+    <member refid="echo_8h_1a2116661e44dc6fa2ab8322b815bf514c" kind="function"><name>gnl_qu_net_echo_doit</name></member>
+  </compound>
+  <compound refid="qu__netlink_8h" kind="file"><name>qu_netlink.h</name>
+    <member refid="qu__netlink_8h_1ad30be674423be07519e679575e66a538" kind="define"><name>FAMILY_NAME</name></member>
+    <member refid="qu__netlink_8h_1aa1d02f1d98ccfbe3702e29599bb89de8" kind="define"><name>GNL_QU_NET_ATTRIBUTE_ENUM_LEN</name></member>
+    <member refid="qu__netlink_8h_1af237a2ea1cfb1f4e022080102b1da291" kind="define"><name>GNL_QU_NET_ATTRIBUTE_COUNT</name></member>
+    <member refid="qu__netlink_8h_1a2f0836755f0617aea830354d35c27516" kind="define"><name>GNL_QU_NET_COMMAND_ENUM_LEN</name></member>
+    <member refid="qu__netlink_8h_1a4a6bd720e1a3563a73823803477d1303" kind="define"><name>GNL_QU_NET_COMMAND_COUNT</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8" kind="enum"><name>GNL_QU_NET_ATTRIBUTE</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8af69142f8e23b4bafda26162348205fd9" kind="enumvalue"><name>GNL_QU_NET_A_UNSPEC</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5" kind="enumvalue"><name>GNL_QU_NET_A_MSG</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a3fc1633618daaee5ab0bb3668d13b6b0" kind="enumvalue"><name>GNL_QU_NET_A_DEV_TYPE</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a9f63a8430ce7a80ba8773faef22d3bd0" kind="enumvalue"><name>GNL_QU_NET_A_ID</name></member>
+    <member refid="qu__netlink_8h_1a15962a220cef4be7d59a700131ab7ac8a175c9d687d82eddec95e377ae9735eb0" kind="enumvalue"><name>__QU_NET_A_MAX</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499" kind="enum"><name>GNL_QU_NET_COMMAND</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499adafa8aaa73f94e40c763133ca8edadc5" kind="enumvalue"><name>GNL_QU_NET_C_UNSPEC</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a0265050b0aca1947d83a0fe9b32e650d" kind="enumvalue"><name>GNL_QU_NET_C_ECHO</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499afc5bea3aab361792214071df7eb8f540" kind="enumvalue"><name>GNL_QU_NET_C_REGISTER</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a467a371a16bddbce4dcc40444a421510" kind="enumvalue"><name>GNL_QU_NET_C_DEREGISTER</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499afaa7c68a67e6d90cc19d04e911f7f6e7" kind="enumvalue"><name>GNL_QU_NET_C_CONFIG</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a5cd3557633e92a8e16fde1f2655f1d95" kind="enumvalue"><name>GNL_QU_NET_C_COMMAND</name></member>
+    <member refid="qu__netlink_8h_1af99537bb275306b584c77cc401d75499a85068fa5b9860bc5c9d2d9aa31aac23e" kind="enumvalue"><name>__QU_NET_C_MAX</name></member>
+  </compound>
+  <compound refid="register_8c" kind="file"><name>register.c</name>
+    <member refid="register_8c_1aa80528cdeb87e7dbae69859a4b1db8ea" kind="variable"><name>qu_devices_allocated</name></member>
+    <member refid="register_8c_1a297e3ba955f4221edee8c4ce5f60ed30" kind="variable"><name>qu_devices</name></member>
+    <member refid="register_8c_1a81c65049221c30c77ebfa6ed5e4b2838" kind="variable"><name>qu_dev_mutex</name></member>
+    <member refid="register_8c_1a2ed3992c3d405e0eb4aa780573641b56" kind="variable"><name>control_module</name></member>
+    <member refid="register_8c_1a36f6e8f51c49c00548335699f2e8d5f8" kind="variable"><name>controller_module</name></member>
+    <member refid="register_8c_1a03ae670e432d5469a6409edf63703028" kind="function"><name>msg_to_DEVICE_TYPE</name></member>
+    <member refid="register_8c_1ac76320e2b7fb3b31808d9f83ddf7f879" kind="function"><name>register_control_module</name></member>
+    <member refid="register_8c_1a455b15ec8fbbc1ca798dcdb2b785adc4" kind="function"><name>deregister_control_module</name></member>
+    <member refid="register_8c_1a99083653126e569979517c569092d282" kind="function"><name>empty_device_slots</name></member>
+    <member refid="register_8c_1a749e78f7da7428b29fa80e380ec95cfb" kind="function"><name>register_device</name></member>
+    <member refid="register_8c_1a9fcb25e4070e6b3292a964056babb4c4" kind="function"><name>deregister_device</name></member>
+    <member refid="register_8c_1a5bdc81758e9e563d2e6ae042097c6116" kind="function"><name>register_response</name></member>
+    <member refid="register_8c_1ad45ce3338ecbad4fd7f41b59b09aef94" kind="function"><name>register_with_simulation_control_module</name></member>
+    <member refid="register_8c_1a190220f2a20542bd2788f9488b0c66c5" kind="function"><name>gnl_qu_net_register_doit</name></member>
+    <member refid="register_8c_1abdabf9dde5da39300c8e4a78ce7e6748" kind="function"><name>gnl_qu_net_deregister_doit</name></member>
+  </compound>
+  <compound refid="register_8h" kind="file"><name>register.h</name>
+    <member refid="register_8h_1a91a8737ea1457ea5a139c7cd4b41e690" kind="define"><name>NDEVICES</name></member>
+    <member refid="register_8h_1add57988c892c423bff906e04292510df" kind="enum"><name>DEVICE_TYPE</name></member>
+    <member refid="register_8h_1add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb" kind="enumvalue"><name>NOT_A_DEVICE</name></member>
+    <member refid="register_8h_1add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482" kind="enumvalue"><name>SIMULATION_CONTROL_MODULE</name></member>
+    <member refid="register_8h_1add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5" kind="enumvalue"><name>QUANTUM_NETWORK_DEVICE</name></member>
+    <member refid="register_8h_1a74a1d25a0884e5f20b60a1f1a719abf8" kind="typedef"><name>genl_info</name></member>
+    <member refid="register_8h_1ae16c92b8b9283dc0983900820c5834b2" kind="typedef"><name>sk_buff</name></member>
+    <member refid="register_8h_1a745f79467eba54fad197b98a60bde838" kind="typedef"><name>qu_device</name></member>
+    <member refid="register_8h_1a81c65049221c30c77ebfa6ed5e4b2838" kind="variable"><name>qu_dev_mutex</name></member>
+    <member refid="register_8h_1a2ed3992c3d405e0eb4aa780573641b56" kind="variable"><name>control_module</name></member>
+    <member refid="register_8h_1a36f6e8f51c49c00548335699f2e8d5f8" kind="variable"><name>controller_module</name></member>
+    <member refid="register_8h_1a297e3ba955f4221edee8c4ce5f60ed30" kind="variable"><name>qu_devices</name></member>
+    <member refid="register_8h_1a190220f2a20542bd2788f9488b0c66c5" kind="function"><name>gnl_qu_net_register_doit</name></member>
+    <member refid="register_8h_1abdabf9dde5da39300c8e4a78ce7e6748" kind="function"><name>gnl_qu_net_deregister_doit</name></member>
+    <member refid="register_8h_1a03ae670e432d5469a6409edf63703028" kind="function"><name>msg_to_DEVICE_TYPE</name></member>
+    <member refid="register_8h_1ac76320e2b7fb3b31808d9f83ddf7f879" kind="function"><name>register_control_module</name></member>
+    <member refid="register_8h_1a455b15ec8fbbc1ca798dcdb2b785adc4" kind="function"><name>deregister_control_module</name></member>
+    <member refid="register_8h_1a749e78f7da7428b29fa80e380ec95cfb" kind="function"><name>register_device</name></member>
+    <member refid="register_8h_1a9fcb25e4070e6b3292a964056babb4c4" kind="function"><name>deregister_device</name></member>
+    <member refid="register_8h_1a5bdc81758e9e563d2e6ae042097c6116" kind="function"><name>register_response</name></member>
+    <member refid="register_8h_1a99083653126e569979517c569092d282" kind="function"><name>empty_device_slots</name></member>
+    <member refid="register_8h_1ad45ce3338ecbad4fd7f41b59b09aef94" kind="function"><name>register_with_simulation_control_module</name></member>
+  </compound>
+  <compound refid="types_8h" kind="file"><name>types.h</name>
+    <member refid="types_8h_1a2badde9dbcf798ac3a058da3b40067c6" kind="variable"><name>gnl_qu_net_family</name></member>
+  </compound>
+  <compound refid="md_README" kind="page"><name>md_README</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

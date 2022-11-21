@@ -1,0 +1,62 @@
+\hypertarget{command_8h}{}\doxysection{src/command.h File Reference}
+\label{command_8h}\index{src/command.h@{src/command.h}}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}}
+\item 
+typedef struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}}
+\item 
+typedef struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} \mbox{\hyperlink{command_8h_a745f79467eba54fad197b98a60bde838}{qu\+\_\+device}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{command_8h_afb136d7999aac8acddf1cd7ebfc992bd}{gnl\+\_\+qu\+\_\+net\+\_\+command\+\_\+doit}} (struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$sender\+\_\+skb, struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info)
+\item 
+int \mbox{\hyperlink{command_8h_a990ef9278778128c9af0819bb8f3f264}{pass\+\_\+to\+\_\+scm}} (struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info, char $\ast$msg)
+\item 
+int \mbox{\hyperlink{command_8h_a1b363a4ab97ce925037e690e49cff589}{pass\+\_\+to\+\_\+node}} (struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info, int node\+\_\+id, char $\ast$msg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}\label{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}} 
+\index{command.h@{command.h}!genl\_info@{genl\_info}}
+\index{genl\_info@{genl\_info}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{genl\_info}{genl\_info}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}}}
+
+\mbox{\Hypertarget{command_8h_a745f79467eba54fad197b98a60bde838}\label{command_8h_a745f79467eba54fad197b98a60bde838}} 
+\index{command.h@{command.h}!qu\_device@{qu\_device}}
+\index{qu\_device@{qu\_device}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{qu\_device}{qu\_device}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}
+
+\mbox{\Hypertarget{command_8h_ae16c92b8b9283dc0983900820c5834b2}\label{command_8h_ae16c92b8b9283dc0983900820c5834b2}} 
+\index{command.h@{command.h}!sk\_buff@{sk\_buff}}
+\index{sk\_buff@{sk\_buff}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{sk\_buff}{sk\_buff}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{command_8h_afb136d7999aac8acddf1cd7ebfc992bd}\label{command_8h_afb136d7999aac8acddf1cd7ebfc992bd}} 
+\index{command.h@{command.h}!gnl\_qu\_net\_command\_doit@{gnl\_qu\_net\_command\_doit}}
+\index{gnl\_qu\_net\_command\_doit@{gnl\_qu\_net\_command\_doit}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{gnl\_qu\_net\_command\_doit()}{gnl\_qu\_net\_command\_doit()}}
+{\footnotesize\ttfamily int gnl\+\_\+qu\+\_\+net\+\_\+command\+\_\+doit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$}]{sender\+\_\+skb,  }\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{command_8h_a1b363a4ab97ce925037e690e49cff589}\label{command_8h_a1b363a4ab97ce925037e690e49cff589}} 
+\index{command.h@{command.h}!pass\_to\_node@{pass\_to\_node}}
+\index{pass\_to\_node@{pass\_to\_node}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{pass\_to\_node()}{pass\_to\_node()}}
+{\footnotesize\ttfamily int pass\+\_\+to\+\_\+node (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info,  }\item[{int}]{node\+\_\+id,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{command_8h_a990ef9278778128c9af0819bb8f3f264}\label{command_8h_a990ef9278778128c9af0819bb8f3f264}} 
+\index{command.h@{command.h}!pass\_to\_scm@{pass\_to\_scm}}
+\index{pass\_to\_scm@{pass\_to\_scm}!command.h@{command.h}}
+\doxysubsubsection{\texorpdfstring{pass\_to\_scm()}{pass\_to\_scm()}}
+{\footnotesize\ttfamily int pass\+\_\+to\+\_\+scm (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+

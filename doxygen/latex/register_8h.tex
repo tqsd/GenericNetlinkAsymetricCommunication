@@ -1,0 +1,206 @@
+\hypertarget{register_8h}{}\doxysection{src/register.h File Reference}
+\label{register_8h}\index{src/register.h@{src/register.h}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{register_8h_a91a8737ea1457ea5a139c7cd4b41e690}{NDEVICES}}~= 2
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} \mbox{\hyperlink{register_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}}
+\item 
+typedef struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} \mbox{\hyperlink{register_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}}
+\item 
+typedef struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} \mbox{\hyperlink{register_8h_a745f79467eba54fad197b98a60bde838}{qu\+\_\+device}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510df}{DEVICE\+\_\+\+TYPE}} \{ \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb}{NOT\+\_\+\+A\+\_\+\+DEVICE}} = -\/1
+, \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482}{SIMULATION\+\_\+\+CONTROL\+\_\+\+MODULE}} = 0
+, \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5}{QUANTUM\+\_\+\+NETWORK\+\_\+\+DEVICE}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{register_8h_a190220f2a20542bd2788f9488b0c66c5}{gnl\+\_\+qu\+\_\+net\+\_\+register\+\_\+doit}} (struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$sender\+\_\+skb, struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info)
+\item 
+int \mbox{\hyperlink{register_8h_abdabf9dde5da39300c8e4a78ce7e6748}{gnl\+\_\+qu\+\_\+net\+\_\+deregister\+\_\+doit}} (struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$sender\+\_\+skb, struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info)
+\item 
+\mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510df}{DEVICE\+\_\+\+TYPE}} \mbox{\hyperlink{register_8h_a03ae670e432d5469a6409edf63703028}{msg\+\_\+to\+\_\+\+DEVICE\+\_\+\+TYPE}} (int $\ast$n)
+\item 
+void \mbox{\hyperlink{register_8h_ac76320e2b7fb3b31808d9f83ddf7f879}{register\+\_\+control\+\_\+module}} (struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} qu\+\_\+control\+\_\+module)
+\item 
+void \mbox{\hyperlink{register_8h_a455b15ec8fbbc1ca798dcdb2b785adc4}{deregister\+\_\+control\+\_\+module}} (struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} qu\+\_\+control\+\_\+module)
+\item 
+int \mbox{\hyperlink{register_8h_a749e78f7da7428b29fa80e380ec95cfb}{register\+\_\+device}} (struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} qudev)
+\item 
+int \mbox{\hyperlink{register_8h_a9fcb25e4070e6b3292a964056babb4c4}{deregister\+\_\+device}} (struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} qu\+\_\+dev, int $\ast$id)
+\item 
+int \mbox{\hyperlink{register_8h_a5bdc81758e9e563d2e6ae042097c6116}{register\+\_\+response}} (int assigned\+\_\+device\+\_\+id, struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$request, struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info, char $\ast$msg)
+\item 
+int \mbox{\hyperlink{register_8h_a99083653126e569979517c569092d282}{empty\+\_\+device\+\_\+slots}} (void)
+\item 
+int \mbox{\hyperlink{register_8h_ad45ce3338ecbad4fd7f41b59b09aef94}{register\+\_\+with\+\_\+simulation\+\_\+control\+\_\+module}} (int assigned\+\_\+device\+\_\+id, struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$info, char $\ast$msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct mutex \mbox{\hyperlink{register_8h_a81c65049221c30c77ebfa6ed5e4b2838}{qu\+\_\+dev\+\_\+mutex}}
+\item 
+\mbox{\hyperlink{structqu__device}{qu\+\_\+device}} \mbox{\hyperlink{register_8h_a2ed3992c3d405e0eb4aa780573641b56}{control\+\_\+module}}
+\item 
+struct mutex \mbox{\hyperlink{register_8h_a36f6e8f51c49c00548335699f2e8d5f8}{controller\+\_\+module}}
+\item 
+\mbox{\hyperlink{structqu__device}{qu\+\_\+device}} $\ast$ \mbox{\hyperlink{register_8h_a297e3ba955f4221edee8c4ce5f60ed30}{qu\+\_\+devices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{register_8h_a91a8737ea1457ea5a139c7cd4b41e690}\label{register_8h_a91a8737ea1457ea5a139c7cd4b41e690}} 
+\index{register.h@{register.h}!NDEVICES@{NDEVICES}}
+\index{NDEVICES@{NDEVICES}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{NDEVICES}{NDEVICES}}
+{\footnotesize\ttfamily \#define NDEVICES~= 2}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{register_8h_a74a1d25a0884e5f20b60a1f1a719abf8}\label{register_8h_a74a1d25a0884e5f20b60a1f1a719abf8}} 
+\index{register.h@{register.h}!genl\_info@{genl\_info}}
+\index{genl\_info@{genl\_info}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{genl\_info}{genl\_info}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}}}
+
+\mbox{\Hypertarget{register_8h_a745f79467eba54fad197b98a60bde838}\label{register_8h_a745f79467eba54fad197b98a60bde838}} 
+\index{register.h@{register.h}!qu\_device@{qu\_device}}
+\index{qu\_device@{qu\_device}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{qu\_device}{qu\_device}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}
+
+\mbox{\Hypertarget{register_8h_ae16c92b8b9283dc0983900820c5834b2}\label{register_8h_ae16c92b8b9283dc0983900820c5834b2}} 
+\index{register.h@{register.h}!sk\_buff@{sk\_buff}}
+\index{sk\_buff@{sk\_buff}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{sk\_buff}{sk\_buff}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{register_8h_add57988c892c423bff906e04292510df}\label{register_8h_add57988c892c423bff906e04292510df}} 
+\index{register.h@{register.h}!DEVICE\_TYPE@{DEVICE\_TYPE}}
+\index{DEVICE\_TYPE@{DEVICE\_TYPE}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{DEVICE\_TYPE}{DEVICE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510df}{DEVICE\+\_\+\+TYPE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NOT\_A\_DEVICE@{NOT\_A\_DEVICE}!register.h@{register.h}}\index{register.h@{register.h}!NOT\_A\_DEVICE@{NOT\_A\_DEVICE}}}\mbox{\Hypertarget{register_8h_add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb}\label{register_8h_add57988c892c423bff906e04292510dfaa17134b168b9b05103172e53022abceb}} 
+NOT\+\_\+\+A\+\_\+\+DEVICE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIMULATION\_CONTROL\_MODULE@{SIMULATION\_CONTROL\_MODULE}!register.h@{register.h}}\index{register.h@{register.h}!SIMULATION\_CONTROL\_MODULE@{SIMULATION\_CONTROL\_MODULE}}}\mbox{\Hypertarget{register_8h_add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482}\label{register_8h_add57988c892c423bff906e04292510dfa00e388716ff3da418e5aff724f3bb482}} 
+SIMULATION\+\_\+\+CONTROL\+\_\+\+MODULE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{QUANTUM\_NETWORK\_DEVICE@{QUANTUM\_NETWORK\_DEVICE}!register.h@{register.h}}\index{register.h@{register.h}!QUANTUM\_NETWORK\_DEVICE@{QUANTUM\_NETWORK\_DEVICE}}}\mbox{\Hypertarget{register_8h_add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5}\label{register_8h_add57988c892c423bff906e04292510dfa827b4082fd9c9336348abc0b84843ec5}} 
+QUANTUM\+\_\+\+NETWORK\+\_\+\+DEVICE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{register_8h_a455b15ec8fbbc1ca798dcdb2b785adc4}\label{register_8h_a455b15ec8fbbc1ca798dcdb2b785adc4}} 
+\index{register.h@{register.h}!deregister\_control\_module@{deregister\_control\_module}}
+\index{deregister\_control\_module@{deregister\_control\_module}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{deregister\_control\_module()}{deregister\_control\_module()}}
+{\footnotesize\ttfamily void deregister\+\_\+control\+\_\+module (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}]{qu\+\_\+control\+\_\+module }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a9fcb25e4070e6b3292a964056babb4c4}\label{register_8h_a9fcb25e4070e6b3292a964056babb4c4}} 
+\index{register.h@{register.h}!deregister\_device@{deregister\_device}}
+\index{deregister\_device@{deregister\_device}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{deregister\_device()}{deregister\_device()}}
+{\footnotesize\ttfamily int deregister\+\_\+device (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}]{qu\+\_\+dev,  }\item[{int $\ast$}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a99083653126e569979517c569092d282}\label{register_8h_a99083653126e569979517c569092d282}} 
+\index{register.h@{register.h}!empty\_device\_slots@{empty\_device\_slots}}
+\index{empty\_device\_slots@{empty\_device\_slots}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{empty\_device\_slots()}{empty\_device\_slots()}}
+{\footnotesize\ttfamily int empty\+\_\+device\+\_\+slots (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_abdabf9dde5da39300c8e4a78ce7e6748}\label{register_8h_abdabf9dde5da39300c8e4a78ce7e6748}} 
+\index{register.h@{register.h}!gnl\_qu\_net\_deregister\_doit@{gnl\_qu\_net\_deregister\_doit}}
+\index{gnl\_qu\_net\_deregister\_doit@{gnl\_qu\_net\_deregister\_doit}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{gnl\_qu\_net\_deregister\_doit()}{gnl\_qu\_net\_deregister\_doit()}}
+{\footnotesize\ttfamily int gnl\+\_\+qu\+\_\+net\+\_\+deregister\+\_\+doit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$}]{sender\+\_\+skb,  }\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a190220f2a20542bd2788f9488b0c66c5}\label{register_8h_a190220f2a20542bd2788f9488b0c66c5}} 
+\index{register.h@{register.h}!gnl\_qu\_net\_register\_doit@{gnl\_qu\_net\_register\_doit}}
+\index{gnl\_qu\_net\_register\_doit@{gnl\_qu\_net\_register\_doit}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{gnl\_qu\_net\_register\_doit()}{gnl\_qu\_net\_register\_doit()}}
+{\footnotesize\ttfamily int gnl\+\_\+qu\+\_\+net\+\_\+register\+\_\+doit (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$}]{sender\+\_\+skb,  }\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a03ae670e432d5469a6409edf63703028}\label{register_8h_a03ae670e432d5469a6409edf63703028}} 
+\index{register.h@{register.h}!msg\_to\_DEVICE\_TYPE@{msg\_to\_DEVICE\_TYPE}}
+\index{msg\_to\_DEVICE\_TYPE@{msg\_to\_DEVICE\_TYPE}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{msg\_to\_DEVICE\_TYPE()}{msg\_to\_DEVICE\_TYPE()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{register_8h_add57988c892c423bff906e04292510df}{DEVICE\+\_\+\+TYPE}} msg\+\_\+to\+\_\+\+DEVICE\+\_\+\+TYPE (\begin{DoxyParamCaption}\item[{int $\ast$}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_ac76320e2b7fb3b31808d9f83ddf7f879}\label{register_8h_ac76320e2b7fb3b31808d9f83ddf7f879}} 
+\index{register.h@{register.h}!register\_control\_module@{register\_control\_module}}
+\index{register\_control\_module@{register\_control\_module}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{register\_control\_module()}{register\_control\_module()}}
+{\footnotesize\ttfamily void register\+\_\+control\+\_\+module (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}]{qu\+\_\+control\+\_\+module }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a749e78f7da7428b29fa80e380ec95cfb}\label{register_8h_a749e78f7da7428b29fa80e380ec95cfb}} 
+\index{register.h@{register.h}!register\_device@{register\_device}}
+\index{register\_device@{register\_device}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{register\_device()}{register\_device()}}
+{\footnotesize\ttfamily int register\+\_\+device (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}}]{qudev }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_a5bdc81758e9e563d2e6ae042097c6116}\label{register_8h_a5bdc81758e9e563d2e6ae042097c6116}} 
+\index{register.h@{register.h}!register\_response@{register\_response}}
+\index{register\_response@{register\_response}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{register\_response()}{register\_response()}}
+{\footnotesize\ttfamily int register\+\_\+response (\begin{DoxyParamCaption}\item[{int}]{assigned\+\_\+device\+\_\+id,  }\item[{struct \mbox{\hyperlink{command_8h_ae16c92b8b9283dc0983900820c5834b2}{sk\+\_\+buff}} $\ast$}]{request,  }\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{register_8h_ad45ce3338ecbad4fd7f41b59b09aef94}\label{register_8h_ad45ce3338ecbad4fd7f41b59b09aef94}} 
+\index{register.h@{register.h}!register\_with\_simulation\_control\_module@{register\_with\_simulation\_control\_module}}
+\index{register\_with\_simulation\_control\_module@{register\_with\_simulation\_control\_module}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{register\_with\_simulation\_control\_module()}{register\_with\_simulation\_control\_module()}}
+{\footnotesize\ttfamily int register\+\_\+with\+\_\+simulation\+\_\+control\+\_\+module (\begin{DoxyParamCaption}\item[{int}]{assigned\+\_\+device\+\_\+id,  }\item[{struct \mbox{\hyperlink{command_8h_a74a1d25a0884e5f20b60a1f1a719abf8}{genl\+\_\+info}} $\ast$}]{info,  }\item[{char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{register_8h_a2ed3992c3d405e0eb4aa780573641b56}\label{register_8h_a2ed3992c3d405e0eb4aa780573641b56}} 
+\index{register.h@{register.h}!control\_module@{control\_module}}
+\index{control\_module@{control\_module}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{control\_module}{control\_module}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structqu__device}{qu\+\_\+device}} control\+\_\+module\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{register_8h_a36f6e8f51c49c00548335699f2e8d5f8}\label{register_8h_a36f6e8f51c49c00548335699f2e8d5f8}} 
+\index{register.h@{register.h}!controller\_module@{controller\_module}}
+\index{controller\_module@{controller\_module}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{controller\_module}{controller\_module}}
+{\footnotesize\ttfamily struct mutex controller\+\_\+module\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{register_8h_a81c65049221c30c77ebfa6ed5e4b2838}\label{register_8h_a81c65049221c30c77ebfa6ed5e4b2838}} 
+\index{register.h@{register.h}!qu\_dev\_mutex@{qu\_dev\_mutex}}
+\index{qu\_dev\_mutex@{qu\_dev\_mutex}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{qu\_dev\_mutex}{qu\_dev\_mutex}}
+{\footnotesize\ttfamily struct mutex qu\+\_\+dev\+\_\+mutex\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{register_8h_a297e3ba955f4221edee8c4ce5f60ed30}\label{register_8h_a297e3ba955f4221edee8c4ce5f60ed30}} 
+\index{register.h@{register.h}!qu\_devices@{qu\_devices}}
+\index{qu\_devices@{qu\_devices}!register.h@{register.h}}
+\doxysubsubsection{\texorpdfstring{qu\_devices}{qu\_devices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structqu__device}{qu\+\_\+device}}$\ast$ qu\+\_\+devices\hspace{0.3cm}{\ttfamily [extern]}}
+

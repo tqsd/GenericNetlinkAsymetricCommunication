@@ -1,0 +1,62 @@
+\hypertarget{qu__netlink_8h_source}{}\doxysection{qu\+\_\+netlink.\+h}
+\label{qu__netlink_8h_source}\index{src/qu\_netlink.h@{src/qu\_netlink.h}}
+\mbox{\hyperlink{qu__netlink_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef QU\_NETLINK\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define QU\_NETLINK\_H\_}}
+\DoxyCodeLine{3 \textcolor{comment}{/*}}
+\DoxyCodeLine{4 \textcolor{comment}{ * NETLINK INTERFACE DEFINITIONS}}
+\DoxyCodeLine{5 \textcolor{comment}{ */}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Netlink family name}}
+\DoxyCodeLine{9 \textcolor{comment}{ */}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define FAMILY\_NAME "{}qu\_net\_link"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{enum} \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8}{GNL\_QU\_NET\_ATTRIBUTE}} \{}
+\DoxyCodeLine{13   \textcolor{comment}{/* Convention: 0th enumeration is never used (?)  */}}
+\DoxyCodeLine{14   \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8af69142f8e23b4bafda26162348205fd9}{GNL\_QU\_NET\_A\_UNSPEC}},}
+\DoxyCodeLine{15   \textcolor{comment}{/*  We expect a MSG to be a null-\/terminated C-\/string. */}}
+\DoxyCodeLine{16   \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8a9c48e0024cb23af07010a5d8303be5b5}{GNL\_QU\_NET\_A\_MSG}},}
+\DoxyCodeLine{17   \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8a3fc1633618daaee5ab0bb3668d13b6b0}{GNL\_QU\_NET\_A\_DEV\_TYPE}},}
+\DoxyCodeLine{18   \textcolor{comment}{/* Integer, which is to be included for identification purposes. */}}
+\DoxyCodeLine{19   \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8a9f63a8430ce7a80ba8773faef22d3bd0}{GNL\_QU\_NET\_A\_ID}},}
+\DoxyCodeLine{20   \textcolor{comment}{/* Not a real attribute */}}
+\DoxyCodeLine{21   \mbox{\hyperlink{qu__netlink_8h_a15962a220cef4be7d59a700131ab7ac8a175c9d687d82eddec95e377ae9735eb0}{\_\_QU\_NET\_A\_MAX}},}
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define GNL\_QU\_NET\_ATTRIBUTE\_ENUM\_LEN (\_\_QU\_NET\_A\_MAX)}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{/*}}
+\DoxyCodeLine{27 \textcolor{comment}{ * The numbe rof usable attributes in `enum QU\_NET\_ATTRIBUTE`.}}
+\DoxyCodeLine{28 \textcolor{comment}{ */}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define GNL\_QU\_NET\_ATTRIBUTE\_COUNT (QU\_NET\_ATTRIBUTE\_ENUM\_LEN -\/ 1)}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{/*}}
+\DoxyCodeLine{32 \textcolor{comment}{ * Enumeration of all of the commands}}
+\DoxyCodeLine{33 \textcolor{comment}{ */}}
+\DoxyCodeLine{34 \textcolor{keyword}{enum} \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499}{GNL\_QU\_NET\_COMMAND}} \{}
+\DoxyCodeLine{35   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499adafa8aaa73f94e40c763133ca8edadc5}{GNL\_QU\_NET\_C\_UNSPEC}},}
+\DoxyCodeLine{36   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499a0265050b0aca1947d83a0fe9b32e650d}{GNL\_QU\_NET\_C\_ECHO}},       \textcolor{comment}{// For testing purposes}}
+\DoxyCodeLine{37   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499afc5bea3aab361792214071df7eb8f540}{GNL\_QU\_NET\_C\_REGISTER}},   \textcolor{comment}{// For registering a module inside of the container}}
+\DoxyCodeLine{38   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499a467a371a16bddbce4dcc40444a421510}{GNL\_QU\_NET\_C\_DEREGISTER}}, \textcolor{comment}{// For deregistering a module}}
+\DoxyCodeLine{39   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499afaa7c68a67e6d90cc19d04e911f7f6e7}{GNL\_QU\_NET\_C\_CONFIG}},     \textcolor{comment}{// For configuring a hw device}}
+\DoxyCodeLine{40   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499a5cd3557633e92a8e16fde1f2655f1d95}{GNL\_QU\_NET\_C\_COMMAND}},    \textcolor{comment}{// For configuring a hw device}}
+\DoxyCodeLine{41   \textcolor{comment}{// container GNL\_QU\_NET\_C\_CONFIG,     // Configuration command}}
+\DoxyCodeLine{42   \textcolor{comment}{// GNL\_QU\_NET\_C\_COMMAND, // Operation commands from the user-\/space to the}}
+\DoxyCodeLine{43   \textcolor{comment}{// quantum}}
+\DoxyCodeLine{44   \textcolor{comment}{//  simulation}}
+\DoxyCodeLine{45   \textcolor{comment}{// GNL\_QU\_NET\_C\_RESPONSE, // Generic response of the kernel module}}
+\DoxyCodeLine{46   \mbox{\hyperlink{qu__netlink_8h_af99537bb275306b584c77cc401d75499a85068fa5b9860bc5c9d2d9aa31aac23e}{\_\_QU\_NET\_C\_MAX}},}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{/*}}
+\DoxyCodeLine{51 \textcolor{comment}{ * Number of elements in 'QU\_NET\_COMMAND'}}
+\DoxyCodeLine{52 \textcolor{comment}{ */}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define GNL\_QU\_NET\_COMMAND\_ENUM\_LEN (\_\_QU\_NET\_C\_MAX)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define GNL\_QU\_NET\_COMMAND\_COUNT (GNL\_QU\_NET\_COMMAND\_ENUM\_LEN -\/ 1)}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QU\_NETLINK\_H\_}}
+
+\end{DoxyCode}

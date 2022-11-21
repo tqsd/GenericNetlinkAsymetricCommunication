@@ -1,0 +1,13 @@
+# Doxyfile 1.8.7
+
+DOXYFILE_ENCODING = UTF-8
+PROJECT_NAME = "ConQuIESt Netlink Simulation Connection"
+PROJECT_NUMBER = 0.0.1
+PROJECT_BRIEF = "Communication between quantum simulator and host through the kernel."
+OUTPUT_DIRECTORY = doc
+CREATE_SUBDIRS = NO
+OUTPUT_LANGUAGE = English
+BRIEF_MEMBER_DESC = YES
+REPEAT_BRIEF = YES
+OPTIMIZE_OUTPUT_C = YES
+MARKDOWN_SUPPORT = YES
